@@ -1,21 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { motion } from "framer-motion"
-import { createClient } from "@/lib/supabase/client"
-import { Code, Palette, Database, Wrench, Layers, Smartphone, Star } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
+import {
+  Code,
+  Palette,
+  Database,
+  Wrench,
+  Layers,
+  Smartphone,
+  Star,
+} from "lucide-react";
 
 interface Skill {
-  id: string
-  name: string
-  category: string
-  proficiency: number
-  icon_name: string | null
-  created_at: string
+  id: string;
+  name: string;
+  category: string;
+  proficiency: number;
+  icon_name: string | null;
+  created_at: string;
 }
 
 const categoryIcons = {
@@ -25,7 +33,7 @@ const categoryIcons = {
   design: Palette,
   tools: Wrench,
   mobile: Smartphone,
-}
+};
 
 const categoryColors = {
   frontend: "from-blue-500 to-cyan-500",
@@ -34,64 +42,70 @@ const categoryColors = {
   design: "from-pink-500 to-rose-500",
   tools: "from-orange-500 to-amber-500",
   mobile: "from-indigo-500 to-blue-500",
-}
+};
 
 export function SkillsSection() {
-  const [skills, setSkills] = useState<Skill[]>([])
-  const [loading, setLoading] = useState(true)
-  const [activeCategory, setActiveCategory] = useState("all")
+  const [skills, setSkills] = useState<Skill[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
-    fetchSkills()
-  }, [])
+    fetchSkills();
+  }, []);
 
   const fetchSkills = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createClient();
       const { data, error } = await supabase
         .from("skills")
         .select("*")
         .order("proficiency", { ascending: false })
-        .order("name")
+        .order("name");
 
-      if (error) throw error
-      setSkills(data || [])
+      if (error) throw error;
+      setSkills(data || []);
     } catch (error) {
-      console.error("Error fetching skills:", error)
+      console.error("Error fetching skills:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
-  const categories = ["all", ...Array.from(new Set(skills.map((skill) => skill.category)))]
-  const filteredSkills = activeCategory === "all" ? skills : skills.filter((skill) => skill.category === activeCategory)
+  const categories = [
+    "all",
+    ...Array.from(new Set(skills.map((skill) => skill.category))),
+  ];
+  const filteredSkills =
+    activeCategory === "all"
+      ? skills
+      : skills.filter((skill) => skill.category === activeCategory);
 
   const groupedSkills = skills.reduce(
     (acc, skill) => {
       if (!acc[skill.category]) {
-        acc[skill.category] = []
+        acc[skill.category] = [];
       }
-      acc[skill.category].push(skill)
-      return acc
+      acc[skill.category].push(skill);
+      return acc;
     },
     {} as Record<string, Skill[]>,
-  )
+  );
 
   const getProficiencyLabel = (proficiency: number) => {
-    if (proficiency >= 5) return "Expert"
-    if (proficiency >= 4) return "Advanced"
-    if (proficiency >= 3) return "Intermediate"
-    if (proficiency >= 2) return "Beginner"
-    return "Learning"
-  }
+    if (proficiency >= 5) return "Expert";
+    if (proficiency >= 4) return "Advanced";
+    if (proficiency >= 3) return "Intermediate";
+    if (proficiency >= 2) return "Beginner";
+    return "Learning";
+  };
 
   const getProficiencyColor = (proficiency: number) => {
-    if (proficiency >= 5) return "text-green-600 dark:text-green-400"
-    if (proficiency >= 4) return "text-blue-600 dark:text-blue-400"
-    if (proficiency >= 3) return "text-purple-600 dark:text-purple-400"
-    if (proficiency >= 2) return "text-orange-600 dark:text-orange-400"
-    return "text-gray-600 dark:text-gray-400"
-  }
+    if (proficiency >= 5) return "text-green-600 dark:text-green-400";
+    if (proficiency >= 4) return "text-blue-600 dark:text-blue-400";
+    if (proficiency >= 3) return "text-purple-600 dark:text-purple-400";
+    if (proficiency >= 2) return "text-orange-600 dark:text-orange-400";
+    return "text-gray-600 dark:text-gray-400";
+  };
 
   if (loading) {
     return (
@@ -117,11 +131,14 @@ export function SkillsSection() {
           </div>
         </div>
       </section>
-    )
+    );
   }
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10">
+    <section
+      id="skills"
+      className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10"
+    >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -137,16 +154,25 @@ export function SkillsSection() {
             Technical <span className="gradient-text">Expertise</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Here are the technologies and tools I work with professionally. My expertise spans from frontend frameworks
-            to state management, with hands-on experience in building real-world applications.
+            Here are the technologies and tools I work with professionally. My
+            expertise spans from frontend frameworks to state management, with
+            hands-on experience in building real-world applications.
           </p>
         </motion.div>
 
-        <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+        <Tabs
+          value={activeCategory}
+          onValueChange={setActiveCategory}
+          className="w-full"
+        >
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 mb-8">
             <TabsTrigger value="all">All Skills</TabsTrigger>
             {Object.keys(groupedSkills).map((category) => (
-              <TabsTrigger key={category} value={category} className="capitalize">
+              <TabsTrigger
+                key={category}
+                value={category}
+                className="capitalize"
+              >
                 {category.replace("-", " ")}
               </TabsTrigger>
             ))}
@@ -154,8 +180,11 @@ export function SkillsSection() {
 
           <TabsContent value="all" className="space-y-8">
             {Object.entries(groupedSkills).map(([category, categorySkills]) => {
-              const IconComponent = categoryIcons[category as keyof typeof categoryIcons] || Code
-              const colorClass = categoryColors[category as keyof typeof categoryColors] || "from-gray-500 to-gray-600"
+              const IconComponent =
+                categoryIcons[category as keyof typeof categoryIcons] || Code;
+              const colorClass =
+                categoryColors[category as keyof typeof categoryColors] ||
+                "from-gray-500 to-gray-600";
 
               return (
                 <motion.div
@@ -166,10 +195,14 @@ export function SkillsSection() {
                   viewport={{ once: true }}
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-2 rounded-lg bg-gradient-to-r ${colorClass}`}>
+                    <div
+                      className={`p-2 rounded-lg bg-gradient-to-r ${colorClass}`}
+                    >
                       <IconComponent className="h-5 w-5 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold capitalize">{category.replace("-", " ")}</h3>
+                    <h3 className="text-2xl font-bold capitalize">
+                      {category.replace("-", " ")}
+                    </h3>
                   </div>
 
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -200,12 +233,19 @@ export function SkillsSection() {
                             </div>
                             <div className="space-y-2">
                               <div className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">Proficiency</span>
-                                <span className={`font-medium ${getProficiencyColor(skill.proficiency)}`}>
+                                <span className="text-muted-foreground">
+                                  Proficiency
+                                </span>
+                                <span
+                                  className={`font-medium ${getProficiencyColor(skill.proficiency)}`}
+                                >
                                   {getProficiencyLabel(skill.proficiency)}
                                 </span>
                               </div>
-                              <Progress value={skill.proficiency * 20} className="h-2" />
+                              <Progress
+                                value={skill.proficiency * 20}
+                                className="h-2"
+                              />
                             </div>
                           </CardContent>
                         </Card>
@@ -213,7 +253,7 @@ export function SkillsSection() {
                     ))}
                   </div>
                 </motion.div>
-              )
+              );
             })}
           </TabsContent>
 
@@ -231,7 +271,9 @@ export function SkillsSection() {
                     <Card className="hover:shadow-lg transition-shadow">
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-4">
-                          <h4 className="text-lg font-semibold">{skill.name}</h4>
+                          <h4 className="text-lg font-semibold">
+                            {skill.name}
+                          </h4>
                           <div className="flex items-center gap-1">
                             {[...Array(5)].map((_, i) => (
                               <Star
@@ -248,11 +290,16 @@ export function SkillsSection() {
                         <div className="space-y-3">
                           <div className="flex justify-between text-sm">
                             <span className="text-muted-foreground">Level</span>
-                            <span className={`font-medium ${getProficiencyColor(skill.proficiency)}`}>
+                            <span
+                              className={`font-medium ${getProficiencyColor(skill.proficiency)}`}
+                            >
                               {getProficiencyLabel(skill.proficiency)}
                             </span>
                           </div>
-                          <Progress value={skill.proficiency * 20} className="h-3" />
+                          <Progress
+                            value={skill.proficiency * 20}
+                            className="h-3"
+                          />
                         </div>
                       </CardContent>
                     </Card>
@@ -264,5 +311,5 @@ export function SkillsSection() {
         </Tabs>
       </div>
     </section>
-  )
+  );
 }

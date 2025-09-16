@@ -1,12 +1,12 @@
-import Link from "next/link"
-import { Github, Linkedin, Mail, Heart } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com", icon: Github },
   { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
   { name: "Email", href: "mailto:contact@example.com", icon: Mail },
-]
+];
 
 export function Footer() {
   return (
@@ -23,14 +23,25 @@ export function Footer() {
               </span>
             </div>
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-              Built with <Heart className="inline h-4 w-4 text-red-500" /> using Next.js, TypeScript & Tailwind CSS
+              Built with <Heart className="inline h-4 w-4 text-red-500" /> using
+              Next.js, TypeScript & Tailwind CSS
             </p>
           </div>
 
           <div className="flex items-center space-x-1">
             {socialLinks.map((link) => (
-              <Button key={link.name} variant="ghost" size="icon" asChild className="h-9 w-9">
-                <Link href={link.href} target="_blank" rel="noopener noreferrer">
+              <Button
+                key={link.name}
+                variant="ghost"
+                size="icon"
+                asChild
+                className="h-9 w-9"
+              >
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <link.icon className="h-4 w-4" />
                   <span className="sr-only">{link.name}</span>
                 </Link>
@@ -40,9 +51,11 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-border/40 pt-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Sarah Dev. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Sarah Dev. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

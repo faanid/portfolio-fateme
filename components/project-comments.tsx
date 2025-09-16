@@ -1,85 +1,85 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { MessageCircle, Send, User } from "lucide-react"
-import { createClient } from "@/lib/supabase/client"
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { MessageCircle, Send, User } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+import { motion } from "framer-motion";
 
 interface Comment {
-  id: string
-  name: string
-  email: string
-  comment: string
-  created_at: string
+  id: string;
+  name: string;
+  email: string;
+  comment: string;
+  created_at: string;
 }
 
 interface ProjectCommentsProps {
-  projectId: string
+  projectId: string;
 }
 
 export function ProjectComments({ projectId }: ProjectCommentsProps) {
-  const [comments, setComments] = useState<Comment[]>([])
-  const [loading, setLoading] = useState(true)
-  const [submitting, setSubmitting] = useState(false)
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     comment: "",
-  })
+  });
 
   useEffect(() => {
-    fetchComments()
-  }, [projectId])
+    fetchComments();
+  }, [projectId]);
 
   const fetchComments = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createClient();
       const { data, error } = await supabase
         .from("project_comments")
         .select("*")
         .eq("project_id", projectId)
-        .order("created_at", { ascending: false })
+        .order("created_at", { ascending: false });
 
-      if (error) throw error
-      setComments(data || [])
+      if (error) throw error;
+      setComments(data || []);
     } catch (error) {
-      console.error("Error fetching comments:", error)
+      console.error("Error fetching comments:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!formData.name || !formData.email || !formData.comment) return
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.comment) return;
 
-    setSubmitting(true)
+    setSubmitting(true);
     try {
-      const supabase = createClient()
+      const supabase = createClient();
       const { error } = await supabase.from("project_comments").insert({
         project_id: projectId,
         name: formData.name,
         email: formData.email,
         comment: formData.comment,
-      })
+      });
 
-      if (error) throw error
+      if (error) throw error;
 
-      setFormData({ name: "", email: "", comment: "" })
-      fetchComments() // Refresh comments
+      setFormData({ name: "", email: "", comment: "" });
+      fetchComments(); // Refresh comments
     } catch (error) {
-      console.error("Error submitting comment:", error)
+      console.error("Error submitting comment:", error);
     } finally {
-      setSubmitting(false)
+      setSubmitting(false);
     }
-  }
+  };
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -88,8 +88,8 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-    })
-  }
+    });
+  };
 
   return (
     <div className="space-y-8">
@@ -130,9 +130,13 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="font-semibold">{comment.name}</span>
-                          <span className="text-sm text-muted-foreground">{formatDate(comment.created_at)}</span>
+                          <span className="text-sm text-muted-foreground">
+                            {formatDate(comment.created_at)}
+                          </span>
                         </div>
-                        <p className="text-muted-foreground">{comment.comment}</p>
+                        <p className="text-muted-foreground">
+                          {comment.comment}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -144,7 +148,9 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
           <Card>
             <CardContent className="p-8 text-center">
               <MessageCircle className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-              <p className="text-muted-foreground">No comments yet. Be the first to share your thoughts!</p>
+              <p className="text-muted-foreground">
+                No comments yet. Be the first to share your thoughts!
+              </p>
             </CardContent>
           </Card>
         )}
@@ -163,7 +169,9 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
                 <Input
                   id="name"
                   value={formData.name}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, name: e.target.value }))
+                  }
                   required
                 />
               </div>
@@ -173,7 +181,9 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
                   id="email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, email: e.target.value }))
+                  }
                   required
                 />
               </div>
@@ -184,12 +194,18 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
                 id="comment"
                 rows={4}
                 value={formData.comment}
-                onChange={(e) => setFormData((prev) => ({ ...prev, comment: e.target.value }))}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, comment: e.target.value }))
+                }
                 placeholder="Share your thoughts about this project..."
                 required
               />
             </div>
-            <Button type="submit" disabled={submitting} className="w-full md:w-auto">
+            <Button
+              type="submit"
+              disabled={submitting}
+              className="w-full md:w-auto"
+            >
               {submitting ? (
                 "Submitting..."
               ) : (
@@ -203,5 +219,5 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

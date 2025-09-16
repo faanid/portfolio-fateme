@@ -1,72 +1,76 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { createContext, useContext, useState, useEffect } from "react"
-import { translations, type Language } from "./translations"
+import type React from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { translations, type Language } from "./translations";
 
 interface I18nContextType {
-  language: Language
-  setLanguage: (lang: Language) => void
-  t: (key: string) => string
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
 }
 
-const I18nContext = createContext<I18nContextType | undefined>(undefined)
+const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
     // Load language from localStorage or browser preference
-    const savedLanguage = localStorage.getItem("language") as Language
+    const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "de")) {
-      setLanguage(savedLanguage)
+      setLanguage(savedLanguage);
     } else {
       // Detect browser language
-      const browserLang = navigator.language.toLowerCase()
+      const browserLang = navigator.language.toLowerCase();
       if (browserLang.startsWith("de")) {
-        setLanguage("de")
+        setLanguage("de");
       }
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     // Save language to localStorage
-    localStorage.setItem("language", language)
+    localStorage.setItem("language", language);
     // Update document language
-    document.documentElement.lang = language
-  }, [language])
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = (key: string): string => {
-    const keys = key.split(".")
-    let value: any = translations[language]
+    const keys = key.split(".");
+    let value: any = translations[language];
 
     for (const k of keys) {
       if (value && typeof value === "object" && k in value) {
-        value = value[k]
+        value = value[k];
       } else {
         // Fallback to English if key not found
-        value = translations.en
+        value = translations.en;
         for (const fallbackKey of keys) {
           if (value && typeof value === "object" && fallbackKey in value) {
-            value = value[fallbackKey]
+            value = value[fallbackKey];
           } else {
-            return key // Return key if not found in fallback
+            return key; // Return key if not found in fallback
           }
         }
-        break
+        break;
       }
     }
 
-    return typeof value === "string" ? value : key
-  }
+    return typeof value === "string" ? value : key;
+  };
 
-  return <I18nContext.Provider value={{ language, setLanguage, t }}>{children}</I18nContext.Provider>
+  return (
+    <I18nContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </I18nContext.Provider>
+  );
 }
 
 export function useI18n() {
-  const context = useContext(I18nContext)
+  const context = useContext(I18nContext);
   if (context === undefined) {
-    throw new Error("useI18n must be used within an I18nProvider")
+    throw new Error("useI18n must be used within an I18nProvider");
   }
-  return context
+  return context;
 }

@@ -1,19 +1,24 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Languages } from "lucide-react"
-import { useI18n } from "@/lib/i18n/context"
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Languages } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
 
 const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "de", name: "Deutsch", flag: "🇩🇪" },
-] as const
+] as const;
 
 export function LanguageToggle() {
-  const { language, setLanguage } = useI18n()
+  const { language, setLanguage } = useI18n();
 
-  const currentLanguage = languages.find((lang) => lang.code === language)
+  const currentLanguage = languages.find((lang) => lang.code === language);
 
   return (
     <DropdownMenu>
@@ -36,5 +41,5 @@ export function LanguageToggle() {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

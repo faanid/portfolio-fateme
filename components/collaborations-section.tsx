@@ -1,50 +1,50 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Building, Clock, Users } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { createClient } from "@/lib/supabase/client"
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Building, Clock, Users } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
 
 interface Collaboration {
-  id: string
-  company_name: string
-  role: string
-  description: string
-  duration: string | null
-  technologies: string[]
-  image_url: string | null
-  website_url: string | null
-  created_at: string
+  id: string;
+  company_name: string;
+  role: string;
+  description: string;
+  duration: string | null;
+  technologies: string[];
+  image_url: string | null;
+  website_url: string | null;
+  created_at: string;
 }
 
 export function CollaborationsSection() {
-  const [collaborations, setCollaborations] = useState<Collaboration[]>([])
-  const [loading, setLoading] = useState(true)
+  const [collaborations, setCollaborations] = useState<Collaboration[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchCollaborations()
-  }, [])
+    fetchCollaborations();
+  }, []);
 
   const fetchCollaborations = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createClient();
       const { data, error } = await supabase
         .from("collaborations")
         .select("*")
-        .order("created_at", { ascending: false })
+        .order("created_at", { ascending: false });
 
-      if (error) throw error
-      setCollaborations(data || [])
+      if (error) throw error;
+      setCollaborations(data || []);
     } catch (error) {
-      console.error("Error fetching collaborations:", error)
+      console.error("Error fetching collaborations:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   if (loading) {
     return (
@@ -72,7 +72,7 @@ export function CollaborationsSection() {
           </div>
         </div>
       </section>
-    )
+    );
   }
 
   return (
@@ -95,15 +95,22 @@ export function CollaborationsSection() {
             Professional <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            I've had the privilege of working with amazing companies and teams. Here are some of the collaborations that
-            have shaped my professional journey.
+            I've had the privilege of working with amazing companies and teams.
+            Here are some of the collaborations that have shaped my professional
+            journey.
           </p>
         </motion.div>
 
         {collaborations.length === 0 ? (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
             <Users className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-            <p className="text-muted-foreground text-lg">Collaboration details will be updated soon.</p>
+            <p className="text-muted-foreground text-lg">
+              Collaboration details will be updated soon.
+            </p>
           </motion.div>
         ) : (
           <div className="grid md:grid-cols-2 gap-8">
@@ -125,7 +132,9 @@ export function CollaborationsSection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <h3 className="text-xl font-bold">{collaboration.company_name}</h3>
+                        <h3 className="text-xl font-bold">
+                          {collaboration.company_name}
+                        </h3>
                       </div>
                     </div>
                   )}
@@ -137,8 +146,12 @@ export function CollaborationsSection() {
                           <Building className="h-6 w-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold">{collaboration.company_name}</h3>
-                          <p className="text-muted-foreground">{collaboration.role}</p>
+                          <h3 className="text-xl font-bold">
+                            {collaboration.company_name}
+                          </h3>
+                          <p className="text-muted-foreground">
+                            {collaboration.role}
+                          </p>
                         </div>
                       </div>
                     )}
@@ -158,12 +171,18 @@ export function CollaborationsSection() {
                       </div>
                     )}
 
-                    <p className="text-muted-foreground mb-4 leading-relaxed">{collaboration.description}</p>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {collaboration.description}
+                    </p>
 
                     {collaboration.technologies.length > 0 && (
                       <div className="flex flex-wrap gap-1 mb-4">
                         {collaboration.technologies.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs">
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="text-xs"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -171,8 +190,17 @@ export function CollaborationsSection() {
                     )}
 
                     {collaboration.website_url && (
-                      <Button variant="outline" size="sm" asChild className="w-full bg-transparent">
-                        <Link href={collaboration.website_url} target="_blank" rel="noopener noreferrer">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="w-full bg-transparent"
+                      >
+                        <Link
+                          href={collaboration.website_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <ExternalLink className="mr-2 h-4 w-4" />
                           Visit Website
                         </Link>
@@ -193,7 +221,8 @@ export function CollaborationsSection() {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground mb-6">
-            Interested in collaborating? I'm always open to new opportunities and exciting projects.
+            Interested in collaborating? I'm always open to new opportunities
+            and exciting projects.
           </p>
           <Button size="lg" asChild>
             <Link href="#contact">Let's Work Together</Link>
@@ -201,5 +230,5 @@ export function CollaborationsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

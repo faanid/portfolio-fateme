@@ -1,27 +1,31 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { useI18n } from "@/lib/i18n/context"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n/context";
 
 const stats = [
   { key: "experience", value: "3+" },
   { key: "projects", value: "8+" },
   { key: "companies", value: "3" },
   { key: "technologies", value: "25+" },
-]
+];
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/fateme-kharazmi", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com/in/fateme-kharazmi", icon: Linkedin },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/fateme-kharazmi",
+    icon: Linkedin,
+  },
   { name: "Email", href: "mailto:fatemeekharazmi@gmail.com", icon: Mail },
-]
+];
 
 export function HeroSection() {
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-purple-950/20 dark:via-gray-900 dark:to-purple-900/20">
@@ -71,7 +75,8 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-xl md:text-2xl text-muted-foreground mb-6 text-pretty"
             >
-              Building responsive and performant web applications with React.js, Next.js, and TypeScript
+              Building responsive and performant web applications with React.js,
+              Next.js, and TypeScript
             </motion.p>
 
             <motion.p
@@ -80,9 +85,11 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-muted-foreground mb-8 max-w-2xl text-pretty"
             >
-              Front-End Developer with hands-on experience in React.js, Next.js, and TypeScript. Skilled in building
-              responsive UI with Tailwind CSS and Material UI, and familiar with state management using Redux, RTK, and
-              Zustand. Passionate about learning new technologies and improving front-end performance in real-world
+              Front-End Developer with hands-on experience in React.js, Next.js,
+              and TypeScript. Skilled in building responsive UI with Tailwind
+              CSS and Material UI, and familiar with state management using
+              Redux, RTK, and Zustand. Passionate about learning new
+              technologies and improving front-end performance in real-world
               projects.
             </motion.p>
 
@@ -114,8 +121,18 @@ export function HeroSection() {
               className="flex justify-center lg:justify-start gap-4 mb-12"
             >
               {socialLinks.map((link) => (
-                <Button key={link.name} variant="ghost" size="icon" asChild className="h-12 w-12">
-                  <Link href={link.href} target="_blank" rel="noopener noreferrer">
+                <Button
+                  key={link.name}
+                  variant="ghost"
+                  size="icon"
+                  asChild
+                  className="h-12 w-12"
+                >
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <link.icon className="h-5 w-5" />
                     <span className="sr-only">{link.name}</span>
                   </Link>
@@ -141,7 +158,9 @@ export function HeroSection() {
                   <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-muted-foreground capitalize">{stat.key}</div>
+                  <div className="text-sm text-muted-foreground capitalize">
+                    {stat.key}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -157,7 +176,7 @@ export function HeroSection() {
             <div className="relative mx-auto w-80 h-80 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-purple-600 dark:from-purple-500 dark:to-purple-700 rounded-full blur-3xl opacity-20"></div>
               <img
-                src="/professional-female-developer.png"
+                src="/fateme-kh1.jpg"
                 alt="Fateme Kharazmi"
                 className="relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-2xl"
               />
@@ -167,5 +186,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

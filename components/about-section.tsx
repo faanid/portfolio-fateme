@@ -1,11 +1,19 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Coffee, Heart, Zap, Target, Users } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Calendar,
+  MapPin,
+  Coffee,
+  Heart,
+  Zap,
+  Target,
+  Users,
+} from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const highlights = [
   {
@@ -28,13 +36,14 @@ const highlights = [
     label: "Passion",
     value: "Frontend Dev",
   },
-]
+];
 
 const values = [
   {
     icon: Zap,
     title: "Performance First",
-    description: "I focus on building fast, optimized applications with real-time features and efficient data flows.",
+    description:
+      "I focus on building fast, optimized applications with real-time features and efficient data flows.",
   },
   {
     icon: Target,
@@ -45,13 +54,17 @@ const values = [
   {
     icon: Users,
     title: "Team Collaboration",
-    description: "I thrive in Agile environments, working effectively with cross-functional teams using Git workflows.",
+    description:
+      "I thrive in Agile environments, working effectively with cross-functional teams using Git workflows.",
   },
-]
+];
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10"
+    >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,12 +77,14 @@ export function AboutSection() {
             About Me
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            Passionate about creating <span className="gradient-text">exceptional experiences</span>
+            Passionate about creating{" "}
+            <span className="gradient-text">exceptional experiences</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            I'm a dedicated frontend developer who loves turning complex problems into simple, beautiful, and intuitive
-            solutions. I specialize in React.js, Next.js, and TypeScript with a focus on performance and user
-            experience.
+            I'm a dedicated frontend developer who loves turning complex
+            problems into simple, beautiful, and intuitive solutions. I
+            specialize in React.js, Next.js, and TypeScript with a focus on
+            performance and user experience.
           </p>
         </motion.div>
 
@@ -85,20 +100,26 @@ export function AboutSection() {
             <h3 className="text-2xl font-bold mb-4">My Journey</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                My journey into frontend development started with a strong foundation in Electrical Engineering from
-                Azad University Tehran Central Branch. I discovered my passion for web development and quickly
-                specialized in React.js and the modern JavaScript ecosystem.
+                My journey into frontend development started with a strong
+                foundation in Electrical Engineering from Azad University Tehran
+                Central Branch. I discovered my passion for web development and
+                quickly specialized in React.js and the modern JavaScript
+                ecosystem.
               </p>
               <p>
-                Over the past 3+ years, I've worked with companies like Nextera, AlborzEng Co., and Esperez Team,
-                building everything from smart CCTV dashboards with real-time WebSocket integration to comprehensive
-                authentication systems. I'm particularly passionate about performance optimization, component
+                Over the past 3+ years, I've worked with companies like Nextera,
+                AlborzEng Co., and Esperez Team, building everything from smart
+                CCTV dashboards with real-time WebSocket integration to
+                comprehensive authentication systems. I'm particularly
+                passionate about performance optimization, component
                 architecture, and creating reusable UI libraries.
               </p>
               <p>
-                I thrive in collaborative Agile environments and am always eager to learn new technologies. Currently,
-                I'm expanding my skills in Svelte, Vue.js, and system design while maintaining expertise in React.js,
-                Next.js, and TypeScript. I'm fluent in English (C1) and German (B2), enabling effective communication in
+                I thrive in collaborative Agile environments and am always eager
+                to learn new technologies. Currently, I'm expanding my skills in
+                Svelte, Vue.js, and system design while maintaining expertise in
+                React.js, Next.js, and TypeScript. I'm fluent in English (C1)
+                and German (B2), enabling effective communication in
                 international teams.
               </p>
             </div>
@@ -128,7 +149,9 @@ export function AboutSection() {
                   <CardContent className="p-0">
                     <item.icon className="h-8 w-8 mx-auto mb-3 text-purple-600 dark:text-purple-400" />
                     <div className="text-2xl font-bold mb-1">{item.value}</div>
-                    <div className="text-sm text-muted-foreground">{item.label}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {item.label}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -164,5 +187,5 @@ export function AboutSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

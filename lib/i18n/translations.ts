@@ -11,10 +11,11 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      greeting: "Hi, I'm",
-      name: "Sarah",
+      greeting: "Quack🦆",
+      name: "Fateme",
       title: "Frontend Developer",
-      subtitle: "Building modern web experiences with React, Next.js, and TypeScript",
+      subtitle:
+        "Building modern web experiences with React, Next.js, and TypeScript",
       description:
         "I'm a passionate frontend developer with 3+ years of experience creating responsive, user-friendly web applications. I love turning complex problems into simple, beautiful designs.",
       cta: {
@@ -38,7 +39,8 @@ export const translations = {
       highlights: {
         responsive: {
           title: "Responsive Design",
-          description: "Creating seamless experiences across all devices and screen sizes.",
+          description:
+            "Creating seamless experiences across all devices and screen sizes.",
         },
         performance: {
           title: "Performance Focused",
@@ -46,11 +48,13 @@ export const translations = {
         },
         modern: {
           title: "Modern Technologies",
-          description: "Using the latest tools and frameworks to build cutting-edge solutions.",
+          description:
+            "Using the latest tools and frameworks to build cutting-edge solutions.",
         },
         collaboration: {
           title: "Team Collaboration",
-          description: "Working effectively with designers, developers, and stakeholders.",
+          description:
+            "Working effectively with designers, developers, and stakeholders.",
         },
       },
       cta: "Download Resume",
@@ -102,7 +106,8 @@ export const translations = {
         "I've had the privilege of working with amazing companies and teams. Here are some of the collaborations that have shaped my professional journey.",
       visitWebsite: "Visit Website",
       cta: {
-        description: "Interested in collaborating? I'm always open to new opportunities and exciting projects.",
+        description:
+          "Interested in collaborating? I'm always open to new opportunities and exciting projects.",
         button: "Let's Work Together",
       },
       empty: "Collaboration details will be updated soon.",
@@ -124,7 +129,8 @@ export const translations = {
         generalInquiries: "General Inquiries",
         projectProposals: "Project Proposals",
         urgentRequests: "Urgent Requests",
-        responseNote: "I typically respond to messages within 24 hours during business days.",
+        responseNote:
+          "I typically respond to messages within 24 hours during business days.",
       },
       tabs: {
         contact: "General Contact",
@@ -145,7 +151,8 @@ export const translations = {
       },
       projectForm: {
         title: "Submit a Project",
-        subtitle: "Tell me about your project and I'll get back to you with a detailed proposal.",
+        subtitle:
+          "Tell me about your project and I'll get back to you with a detailed proposal.",
         companyInfo: "Company & Contact Information",
         companyName: "Company Name",
         contactPerson: "Contact Person",
@@ -155,17 +162,20 @@ export const translations = {
         projectTitle: "Project Title",
         projectTitlePlaceholder: "e.g., E-commerce Website Redesign",
         projectDescription: "Project Description",
-        projectDescriptionPlaceholder: "Describe your project, goals, and requirements...",
+        projectDescriptionPlaceholder:
+          "Describe your project, goals, and requirements...",
         budgetRange: "Budget Range",
         budgetPlaceholder: "Select budget range",
         timeline: "Timeline",
         timelinePlaceholder: "Select timeline",
         priority: "Priority Level",
         technologies: "Preferred Technologies",
-        technologiesDescription: "Select the technologies you'd like me to use for your project.",
+        technologiesDescription:
+          "Select the technologies you'd like me to use for your project.",
         submit: "Submit Project",
         submitting: "Submitting...",
-        success: "Project submitted successfully! I'll review it and get back to you within 48 hours.",
+        success:
+          "Project submitted successfully! I'll review it and get back to you within 48 hours.",
         error: "Failed to submit project. Please try again.",
       },
     },
@@ -210,7 +220,8 @@ export const translations = {
       greeting: "Hallo, ich bin",
       name: "Sarah",
       title: "Frontend-Entwicklerin",
-      subtitle: "Moderne Web-Erlebnisse mit React, Next.js und TypeScript entwickeln",
+      subtitle:
+        "Moderne Web-Erlebnisse mit React, Next.js und TypeScript entwickeln",
       description:
         "Ich bin eine leidenschaftliche Frontend-Entwicklerin mit über 3 Jahren Erfahrung in der Erstellung responsiver, benutzerfreundlicher Webanwendungen. Ich liebe es, komplexe Probleme in einfache, schöne Designs zu verwandeln.",
       cta: {
@@ -234,19 +245,23 @@ export const translations = {
       highlights: {
         responsive: {
           title: "Responsive Design",
-          description: "Nahtlose Erlebnisse auf allen Geräten und Bildschirmgrößen schaffen.",
+          description:
+            "Nahtlose Erlebnisse auf allen Geräten und Bildschirmgrößen schaffen.",
         },
         performance: {
           title: "Performance-fokussiert",
-          description: "Anwendungen für Geschwindigkeit und Benutzererfahrung optimieren.",
+          description:
+            "Anwendungen für Geschwindigkeit und Benutzererfahrung optimieren.",
         },
         modern: {
           title: "Moderne Technologien",
-          description: "Die neuesten Tools und Frameworks für innovative Lösungen nutzen.",
+          description:
+            "Die neuesten Tools und Frameworks für innovative Lösungen nutzen.",
         },
         collaboration: {
           title: "Teamarbeit",
-          description: "Effektive Zusammenarbeit mit Designern, Entwicklern und Stakeholdern.",
+          description:
+            "Effektive Zusammenarbeit mit Designern, Entwicklern und Stakeholdern.",
         },
       },
       cta: "Lebenslauf herunterladen",
@@ -321,7 +336,8 @@ export const translations = {
         generalInquiries: "Allgemeine Anfragen",
         projectProposals: "Projektvorschläge",
         urgentRequests: "Dringende Anfragen",
-        responseNote: "Ich antworte normalerweise innerhalb von 24 Stunden an Werktagen auf Nachrichten.",
+        responseNote:
+          "Ich antworte normalerweise innerhalb von 24 Stunden an Werktagen auf Nachrichten.",
       },
       tabs: {
         contact: "Allgemeiner Kontakt",
@@ -334,15 +350,19 @@ export const translations = {
         subject: "Betreff",
         subjectPlaceholder: "Worum geht es?",
         message: "Nachricht",
-        messagePlaceholder: "Erzählen Sie mir von Ihrem Projekt oder Ihrer Frage...",
+        messagePlaceholder:
+          "Erzählen Sie mir von Ihrem Projekt oder Ihrer Frage...",
         submit: "Nachricht senden",
         submitting: "Wird gesendet...",
-        success: "Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.",
-        error: "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+        success:
+          "Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.",
+        error:
+          "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
       },
       projectForm: {
         title: "Projekt einreichen",
-        subtitle: "Erzählen Sie mir von Ihrem Projekt und ich melde mich mit einem detaillierten Vorschlag bei Ihnen.",
+        subtitle:
+          "Erzählen Sie mir von Ihrem Projekt und ich melde mich mit einem detaillierten Vorschlag bei Ihnen.",
         companyInfo: "Unternehmens- und Kontaktinformationen",
         companyName: "Firmenname",
         contactPerson: "Ansprechpartner",
@@ -352,19 +372,22 @@ export const translations = {
         projectTitle: "Projekttitel",
         projectTitlePlaceholder: "z.B. E-Commerce-Website-Redesign",
         projectDescription: "Projektbeschreibung",
-        projectDescriptionPlaceholder: "Beschreiben Sie Ihr Projekt, Ziele und Anforderungen...",
+        projectDescriptionPlaceholder:
+          "Beschreiben Sie Ihr Projekt, Ziele und Anforderungen...",
         budgetRange: "Budgetbereich",
         budgetPlaceholder: "Budgetbereich auswählen",
         timeline: "Zeitplan",
         timelinePlaceholder: "Zeitplan auswählen",
         priority: "Prioritätsstufe",
         technologies: "Bevorzugte Technologien",
-        technologiesDescription: "Wählen Sie die Technologien aus, die ich für Ihr Projekt verwenden soll.",
+        technologiesDescription:
+          "Wählen Sie die Technologien aus, die ich für Ihr Projekt verwenden soll.",
         submit: "Projekt einreichen",
         submitting: "Wird eingereicht...",
         success:
           "Projekt erfolgreich eingereicht! Ich werde es prüfen und mich innerhalb von 48 Stunden bei Ihnen melden.",
-        error: "Projekt konnte nicht eingereicht werden. Bitte versuchen Sie es erneut.",
+        error:
+          "Projekt konnte nicht eingereicht werden. Bitte versuchen Sie es erneut.",
       },
     },
     // Project Detail Page
@@ -374,7 +397,8 @@ export const translations = {
       technologiesUsed: "Verwendete Technologien",
       comments: {
         title: "Kommentare",
-        noComments: "Noch keine Kommentare. Seien Sie der Erste, der seine Gedanken teilt!",
+        noComments:
+          "Noch keine Kommentare. Seien Sie der Erste, der seine Gedanken teilt!",
         leaveComment: "Kommentar hinterlassen",
         name: "Name",
         email: "E-Mail",
@@ -393,7 +417,7 @@ export const translations = {
       tryAgain: "Erneut versuchen",
     },
   },
-} as const
+} as const;
 
-export type Language = keyof typeof translations
-export type TranslationKey = keyof typeof translations.en
+export type Language = keyof typeof translations;
+export type TranslationKey = keyof typeof translations.en;

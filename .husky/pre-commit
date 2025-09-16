@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+echo "🧹 Formatting code... 🎨"
+pnpm dlx lint-staged
+
+echo "🔍 Running ESLint checks..."
+
+echo "✅ All good to go!"

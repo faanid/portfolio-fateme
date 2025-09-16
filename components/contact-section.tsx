@@ -1,38 +1,53 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Mail, Send, MapPin, Phone, MessageCircle, Briefcase, CheckCircle, AlertCircle } from "lucide-react"
-import { motion } from "framer-motion"
-import { createClient } from "@/lib/supabase/client"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Mail,
+  Send,
+  MapPin,
+  Phone,
+  MessageCircle,
+  Briefcase,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
 
 interface ContactFormData {
-  name: string
-  email: string
-  subject: string
-  message: string
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 }
 
 interface ProjectSubmissionData {
-  company_name: string
-  contact_name: string
-  email: string
-  phone: string
-  project_title: string
-  project_description: string
-  budget_range: string
-  timeline: string
-  technologies: string[]
-  priority: string
+  company_name: string;
+  contact_name: string;
+  email: string;
+  phone: string;
+  project_title: string;
+  project_description: string;
+  budget_range: string;
+  timeline: string;
+  technologies: string[];
+  priority: string;
 }
 
 const budgetRanges = [
@@ -42,16 +57,24 @@ const budgetRanges = [
   "$25,000 - $50,000",
   "$50,000+",
   "Let's discuss",
-]
+];
 
-const timelineOptions = ["ASAP", "1-2 weeks", "1 month", "2-3 months", "3-6 months", "6+ months", "Flexible"]
+const timelineOptions = [
+  "ASAP",
+  "1-2 weeks",
+  "1 month",
+  "2-3 months",
+  "3-6 months",
+  "6+ months",
+  "Flexible",
+];
 
 const priorityLevels = [
   { value: "low", label: "Low Priority" },
   { value: "medium", label: "Medium Priority" },
   { value: "high", label: "High Priority" },
   { value: "urgent", label: "Urgent" },
-]
+];
 
 const commonTechnologies = [
   "React.js",
@@ -68,16 +91,16 @@ const commonTechnologies = [
   "PostgreSQL",
   "Firebase",
   "Supabase",
-]
+];
 
 export function ContactSection() {
-  const [activeTab, setActiveTab] = useState("contact")
+  const [activeTab, setActiveTab] = useState("contact");
   const [contactForm, setContactForm] = useState<ContactFormData>({
     name: "",
     email: "",
     subject: "",
     message: "",
-  })
+  });
   const [projectForm, setProjectForm] = useState<ProjectSubmissionData>({
     company_name: "",
     contact_name: "",
@@ -89,51 +112,53 @@ export function ContactSection() {
     timeline: "",
     technologies: [],
     priority: "medium",
-  })
-  const [contactSubmitting, setContactSubmitting] = useState(false)
-  const [projectSubmitting, setProjectSubmitting] = useState(false)
-  const [contactSuccess, setContactSuccess] = useState(false)
-  const [projectSuccess, setProjectSuccess] = useState(false)
-  const [contactError, setContactError] = useState("")
-  const [projectError, setProjectError] = useState("")
+  });
+  const [contactSubmitting, setContactSubmitting] = useState(false);
+  const [projectSubmitting, setProjectSubmitting] = useState(false);
+  const [contactSuccess, setContactSuccess] = useState(false);
+  const [projectSuccess, setProjectSuccess] = useState(false);
+  const [contactError, setContactError] = useState("");
+  const [projectError, setProjectError] = useState("");
 
   const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setContactSubmitting(true)
-    setContactError("")
+    e.preventDefault();
+    setContactSubmitting(true);
+    setContactError("");
 
     try {
-      const supabase = createClient()
+      const supabase = createClient();
       const { error } = await supabase.from("contact_messages").insert({
         name: contactForm.name,
         email: contactForm.email,
         subject: contactForm.subject,
         message: contactForm.message,
-      })
+      });
 
-      if (error) throw error
+      if (error) throw error;
 
-      setContactForm({ name: "", email: "", subject: "", message: "" })
-      setContactSuccess(true)
-      setTimeout(() => setContactSuccess(false), 5000)
+      setContactForm({ name: "", email: "", subject: "", message: "" });
+      setContactSuccess(true);
+      setTimeout(() => setContactSuccess(false), 5000);
     } catch (error) {
-      console.error("Error submitting contact form:", error)
-      setContactError("Failed to send message. Please try again.")
+      console.error("Error submitting contact form:", error);
+      setContactError("Failed to send message. Please try again.");
     } finally {
-      setContactSubmitting(false)
+      setContactSubmitting(false);
     }
-  }
+  };
 
   const handleProjectSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setProjectSubmitting(true)
-    setProjectError("")
+    e.preventDefault();
+    setProjectSubmitting(true);
+    setProjectError("");
 
     try {
-      const supabase = createClient()
-      const { error } = await supabase.from("project_submissions").insert(projectForm)
+      const supabase = createClient();
+      const { error } = await supabase
+        .from("project_submissions")
+        .insert(projectForm);
 
-      if (error) throw error
+      if (error) throw error;
 
       setProjectForm({
         company_name: "",
@@ -146,16 +171,16 @@ export function ContactSection() {
         timeline: "",
         technologies: [],
         priority: "medium",
-      })
-      setProjectSuccess(true)
-      setTimeout(() => setProjectSuccess(false), 5000)
+      });
+      setProjectSuccess(true);
+      setTimeout(() => setProjectSuccess(false), 5000);
     } catch (error) {
-      console.error("Error submitting project form:", error)
-      setProjectError("Failed to submit project. Please try again.")
+      console.error("Error submitting project form:", error);
+      setProjectError("Failed to submit project. Please try again.");
     } finally {
-      setProjectSubmitting(false)
+      setProjectSubmitting(false);
     }
-  }
+  };
 
   const toggleTechnology = (tech: string) => {
     setProjectForm((prev) => ({
@@ -163,11 +188,14 @@ export function ContactSection() {
       technologies: prev.technologies.includes(tech)
         ? prev.technologies.filter((t) => t !== tech)
         : [...prev.technologies, tech],
-    }))
-  }
+    }));
+  };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10"
+    >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -183,8 +211,8 @@ export function ContactSection() {
             Let's Work <span className="gradient-text">Together</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Have a project in mind or just want to chat? I'd love to hear from you. Choose the option that works best
-            for you.
+            Have a project in mind or just want to chat? I'd love to hear from
+            you. Choose the option that works best for you.
           </p>
         </motion.div>
 
@@ -209,21 +237,27 @@ export function ContactSection() {
                   <Mail className="h-4 w-4 text-muted-foreground" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-sm text-muted-foreground">fatemeekharazmi@gmail.com</p>
+                    <p className="text-sm text-muted-foreground">
+                      fatemeekharazmi@gmail.com
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-muted-foreground" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-sm text-muted-foreground">+98 901 691 2262</p>
+                    <p className="text-sm text-muted-foreground">
+                      +98 901 691 2262
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="h-4 w-4 text-muted-foreground" />
                   <div>
                     <p className="font-medium">Location</p>
-                    <p className="text-sm text-muted-foreground">Tehran, Iran / Remote</p>
+                    <p className="text-sm text-muted-foreground">
+                      Tehran, Iran / Remote
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -233,20 +267,27 @@ export function ContactSection() {
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-3">Response Time</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  I typically respond to messages within 24 hours during business days.
+                  I typically respond to messages within 24 hours during
+                  business days.
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span>General Inquiries</span>
-                    <span className="text-green-600 dark:text-green-400">24h</span>
+                    <span className="text-green-600 dark:text-green-400">
+                      24h
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Project Proposals</span>
-                    <span className="text-blue-600 dark:text-blue-400">48h</span>
+                    <span className="text-blue-600 dark:text-blue-400">
+                      48h
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Urgent Requests</span>
-                    <span className="text-orange-600 dark:text-orange-400">Same day</span>
+                    <span className="text-orange-600 dark:text-orange-400">
+                      Same day
+                    </span>
                   </div>
                 </div>
               </CardContent>
@@ -263,11 +304,17 @@ export function ContactSection() {
           >
             <Tabs value={activeTab} onValueChange={setActiveTab}>
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="contact" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="contact"
+                  className="flex items-center gap-2"
+                >
                   <MessageCircle className="h-4 w-4" />
                   General Contact
                 </TabsTrigger>
-                <TabsTrigger value="project" className="flex items-center gap-2">
+                <TabsTrigger
+                  value="project"
+                  className="flex items-center gap-2"
+                >
                   <Briefcase className="h-4 w-4" />
                   Project Submission
                 </TabsTrigger>
@@ -292,7 +339,9 @@ export function ContactSection() {
                     {contactError && (
                       <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-2">
                         <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
-                        <p className="text-red-800 dark:text-red-200">{contactError}</p>
+                        <p className="text-red-800 dark:text-red-200">
+                          {contactError}
+                        </p>
                       </div>
                     )}
 
@@ -303,7 +352,12 @@ export function ContactSection() {
                           <Input
                             id="contact-name"
                             value={contactForm.name}
-                            onChange={(e) => setContactForm((prev) => ({ ...prev, name: e.target.value }))}
+                            onChange={(e) =>
+                              setContactForm((prev) => ({
+                                ...prev,
+                                name: e.target.value,
+                              }))
+                            }
                             required
                           />
                         </div>
@@ -313,7 +367,12 @@ export function ContactSection() {
                             id="contact-email"
                             type="email"
                             value={contactForm.email}
-                            onChange={(e) => setContactForm((prev) => ({ ...prev, email: e.target.value }))}
+                            onChange={(e) =>
+                              setContactForm((prev) => ({
+                                ...prev,
+                                email: e.target.value,
+                              }))
+                            }
                             required
                           />
                         </div>
@@ -323,7 +382,12 @@ export function ContactSection() {
                         <Input
                           id="contact-subject"
                           value={contactForm.subject}
-                          onChange={(e) => setContactForm((prev) => ({ ...prev, subject: e.target.value }))}
+                          onChange={(e) =>
+                            setContactForm((prev) => ({
+                              ...prev,
+                              subject: e.target.value,
+                            }))
+                          }
                           placeholder="What's this about?"
                         />
                       </div>
@@ -333,12 +397,21 @@ export function ContactSection() {
                           id="contact-message"
                           rows={6}
                           value={contactForm.message}
-                          onChange={(e) => setContactForm((prev) => ({ ...prev, message: e.target.value }))}
+                          onChange={(e) =>
+                            setContactForm((prev) => ({
+                              ...prev,
+                              message: e.target.value,
+                            }))
+                          }
                           placeholder="Tell me about your project or question..."
                           required
                         />
                       </div>
-                      <Button type="submit" disabled={contactSubmitting} className="w-full">
+                      <Button
+                        type="submit"
+                        disabled={contactSubmitting}
+                        className="w-full"
+                      >
                         {contactSubmitting ? (
                           "Sending..."
                         ) : (
@@ -359,7 +432,8 @@ export function ContactSection() {
                   <CardHeader>
                     <CardTitle>Submit a Project</CardTitle>
                     <p className="text-sm text-muted-foreground">
-                      Tell me about your project and I'll get back to you with a detailed proposal.
+                      Tell me about your project and I'll get back to you with a
+                      detailed proposal.
                     </p>
                   </CardHeader>
                   <CardContent>
@@ -367,7 +441,8 @@ export function ContactSection() {
                       <div className="mb-6 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-2">
                         <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
                         <p className="text-green-800 dark:text-green-200">
-                          Project submitted successfully! I'll review it and get back to you within 48 hours.
+                          Project submitted successfully! I'll review it and get
+                          back to you within 48 hours.
                         </p>
                       </div>
                     )}
@@ -375,30 +450,46 @@ export function ContactSection() {
                     {projectError && (
                       <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-2">
                         <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
-                        <p className="text-red-800 dark:text-red-200">{projectError}</p>
+                        <p className="text-red-800 dark:text-red-200">
+                          {projectError}
+                        </p>
                       </div>
                     )}
 
                     <form onSubmit={handleProjectSubmit} className="space-y-6">
                       {/* Company & Contact Info */}
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Company & Contact Information</h3>
+                        <h3 className="text-lg font-semibold">
+                          Company & Contact Information
+                        </h3>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="company-name">Company Name *</Label>
                             <Input
                               id="company-name"
                               value={projectForm.company_name}
-                              onChange={(e) => setProjectForm((prev) => ({ ...prev, company_name: e.target.value }))}
+                              onChange={(e) =>
+                                setProjectForm((prev) => ({
+                                  ...prev,
+                                  company_name: e.target.value,
+                                }))
+                              }
                               required
                             />
                           </div>
                           <div>
-                            <Label htmlFor="contact-person">Contact Person *</Label>
+                            <Label htmlFor="contact-person">
+                              Contact Person *
+                            </Label>
                             <Input
                               id="contact-person"
                               value={projectForm.contact_name}
-                              onChange={(e) => setProjectForm((prev) => ({ ...prev, contact_name: e.target.value }))}
+                              onChange={(e) =>
+                                setProjectForm((prev) => ({
+                                  ...prev,
+                                  contact_name: e.target.value,
+                                }))
+                              }
                               required
                             />
                           </div>
@@ -410,7 +501,12 @@ export function ContactSection() {
                               id="project-email"
                               type="email"
                               value={projectForm.email}
-                              onChange={(e) => setProjectForm((prev) => ({ ...prev, email: e.target.value }))}
+                              onChange={(e) =>
+                                setProjectForm((prev) => ({
+                                  ...prev,
+                                  email: e.target.value,
+                                }))
+                              }
                               required
                             />
                           </div>
@@ -419,7 +515,12 @@ export function ContactSection() {
                             <Input
                               id="project-phone"
                               value={projectForm.phone}
-                              onChange={(e) => setProjectForm((prev) => ({ ...prev, phone: e.target.value }))}
+                              onChange={(e) =>
+                                setProjectForm((prev) => ({
+                                  ...prev,
+                                  phone: e.target.value,
+                                }))
+                              }
                             />
                           </div>
                         </div>
@@ -427,25 +528,37 @@ export function ContactSection() {
 
                       {/* Project Details */}
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Project Details</h3>
+                        <h3 className="text-lg font-semibold">
+                          Project Details
+                        </h3>
                         <div>
                           <Label htmlFor="project-title">Project Title *</Label>
                           <Input
                             id="project-title"
                             value={projectForm.project_title}
-                            onChange={(e) => setProjectForm((prev) => ({ ...prev, project_title: e.target.value }))}
+                            onChange={(e) =>
+                              setProjectForm((prev) => ({
+                                ...prev,
+                                project_title: e.target.value,
+                              }))
+                            }
                             placeholder="e.g., E-commerce Website Redesign"
                             required
                           />
                         </div>
                         <div>
-                          <Label htmlFor="project-description">Project Description *</Label>
+                          <Label htmlFor="project-description">
+                            Project Description *
+                          </Label>
                           <Textarea
                             id="project-description"
                             rows={4}
                             value={projectForm.project_description}
                             onChange={(e) =>
-                              setProjectForm((prev) => ({ ...prev, project_description: e.target.value }))
+                              setProjectForm((prev) => ({
+                                ...prev,
+                                project_description: e.target.value,
+                              }))
                             }
                             placeholder="Describe your project, goals, and requirements..."
                             required
@@ -456,7 +569,12 @@ export function ContactSection() {
                             <Label htmlFor="budget-range">Budget Range</Label>
                             <Select
                               value={projectForm.budget_range}
-                              onValueChange={(value) => setProjectForm((prev) => ({ ...prev, budget_range: value }))}
+                              onValueChange={(value) =>
+                                setProjectForm((prev) => ({
+                                  ...prev,
+                                  budget_range: value,
+                                }))
+                              }
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder="Select budget range" />
@@ -474,7 +592,12 @@ export function ContactSection() {
                             <Label htmlFor="timeline">Timeline</Label>
                             <Select
                               value={projectForm.timeline}
-                              onValueChange={(value) => setProjectForm((prev) => ({ ...prev, timeline: value }))}
+                              onValueChange={(value) =>
+                                setProjectForm((prev) => ({
+                                  ...prev,
+                                  timeline: value,
+                                }))
+                              }
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder="Select timeline" />
@@ -493,14 +616,22 @@ export function ContactSection() {
                           <Label htmlFor="priority">Priority Level</Label>
                           <Select
                             value={projectForm.priority}
-                            onValueChange={(value) => setProjectForm((prev) => ({ ...prev, priority: value }))}
+                            onValueChange={(value) =>
+                              setProjectForm((prev) => ({
+                                ...prev,
+                                priority: value,
+                              }))
+                            }
                           >
                             <SelectTrigger>
                               <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
                               {priorityLevels.map((level) => (
-                                <SelectItem key={level.value} value={level.value}>
+                                <SelectItem
+                                  key={level.value}
+                                  value={level.value}
+                                >
                                   {level.label}
                                 </SelectItem>
                               ))}
@@ -511,15 +642,22 @@ export function ContactSection() {
 
                       {/* Technologies */}
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold">Preferred Technologies</h3>
+                        <h3 className="text-lg font-semibold">
+                          Preferred Technologies
+                        </h3>
                         <p className="text-sm text-muted-foreground">
-                          Select the technologies you'd like me to use for your project.
+                          Select the technologies you'd like me to use for your
+                          project.
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {commonTechnologies.map((tech) => (
                             <Badge
                               key={tech}
-                              variant={projectForm.technologies.includes(tech) ? "default" : "outline"}
+                              variant={
+                                projectForm.technologies.includes(tech)
+                                  ? "default"
+                                  : "outline"
+                              }
                               className="cursor-pointer transition-colors"
                               onClick={() => toggleTechnology(tech)}
                             >
@@ -529,7 +667,11 @@ export function ContactSection() {
                         </div>
                       </div>
 
-                      <Button type="submit" disabled={projectSubmitting} className="w-full">
+                      <Button
+                        type="submit"
+                        disabled={projectSubmitting}
+                        className="w-full"
+                      >
                         {projectSubmitting ? (
                           "Submitting..."
                         ) : (
@@ -548,5 +690,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

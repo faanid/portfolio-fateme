@@ -1,52 +1,52 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Eye } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { createClient } from "@/lib/supabase/client"
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github, Eye } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
 
 interface Project {
-  id: string
-  title: string
-  description: string
-  long_description: string | null
-  technologies: string[]
-  image_url: string | null
-  live_url: string | null
-  github_url: string | null
-  featured: boolean
-  created_at: string
+  id: string;
+  title: string;
+  description: string;
+  long_description: string | null;
+  technologies: string[];
+  image_url: string | null;
+  live_url: string | null;
+  github_url: string | null;
+  featured: boolean;
+  created_at: string;
 }
 
 export function ProjectsSection() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProjects()
-  }, [])
+    fetchProjects();
+  }, []);
 
   const fetchProjects = async () => {
     try {
-      const supabase = createClient()
+      const supabase = createClient();
       const { data, error } = await supabase
         .from("projects")
         .select("*")
         .order("featured", { ascending: false })
-        .order("created_at", { ascending: false })
+        .order("created_at", { ascending: false });
 
-      if (error) throw error
-      setProjects(data || [])
+      if (error) throw error;
+      setProjects(data || []);
     } catch (error) {
-      console.error("Error fetching projects:", error)
+      console.error("Error fetching projects:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   if (loading) {
     return (
@@ -71,7 +71,7 @@ export function ProjectsSection() {
           </div>
         </div>
       </section>
-    )
+    );
   }
 
   return (
@@ -94,8 +94,9 @@ export function ProjectsSection() {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Here are some of the projects I've worked on during my professional experience. Each project represents
-            real-world challenges and solutions I've implemented.
+            Here are some of the projects I've worked on during my professional
+            experience. Each project represents real-world challenges and
+            solutions I've implemented.
           </p>
         </motion.div>
 
@@ -120,7 +121,9 @@ export function ProjectsSection() {
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   {project.featured && (
-                    <Badge className="absolute top-3 left-3 bg-purple-600 hover:bg-purple-700">Featured</Badge>
+                    <Badge className="absolute top-3 left-3 bg-purple-600 hover:bg-purple-700">
+                      Featured
+                    </Badge>
                   )}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
                     <Button size="sm" variant="secondary" asChild>
@@ -136,7 +139,9 @@ export function ProjectsSection() {
                   <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
+                  <p className="text-muted-foreground mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-1 mb-4">
                     {project.technologies.slice(0, 3).map((tech) => (
@@ -154,16 +159,34 @@ export function ProjectsSection() {
 
                 <CardFooter className="p-6 pt-0 flex gap-2">
                   {project.live_url && (
-                    <Button size="sm" variant="outline" asChild className="flex-1 bg-transparent">
-                      <Link href={project.live_url} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      asChild
+                      className="flex-1 bg-transparent"
+                    >
+                      <Link
+                        href={project.live_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Live Demo
                       </Link>
                     </Button>
                   )}
                   {project.github_url && (
-                    <Button size="sm" variant="outline" asChild className="flex-1 bg-transparent">
-                      <Link href={project.github_url} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      asChild
+                      className="flex-1 bg-transparent"
+                    >
+                      <Link
+                        href={project.github_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="mr-2 h-4 w-4" />
                         Code
                       </Link>
@@ -176,7 +199,11 @@ export function ProjectsSection() {
         </div>
 
         {projects.length === 0 && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
             <p className="text-muted-foreground text-lg">No projects found.</p>
           </motion.div>
         )}
@@ -189,7 +216,11 @@ export function ProjectsSection() {
           className="text-center mt-12"
         >
           <Button size="lg" variant="outline" asChild>
-            <Link href="https://github.com/fateme-kharazmi" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://github.com/fateme-kharazmi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="mr-2 h-5 w-5" />
               View All Projects on GitHub
             </Link>
@@ -197,5 +228,5 @@ export function ProjectsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
