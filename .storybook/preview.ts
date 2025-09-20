@@ -1,26 +1,21 @@
 import type { Preview } from '@storybook/nextjs-vite';
-// import { ThemeProvider } from '../components/theme-provider';
-// import { ThemeProvider } from 'storybook/internal/theming';
 
-// export const decorators = [
-//   (Story) => (
-//     <ThemeProvider>
-//       <Story />
-//     </ThemeProvider>
-//   ),
-// ];
 
 const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
+       color: /(background|color)$/i,
+       date: /Date$/i,
       },
     },
+
     a11y: {
-      test: 'todo',
-    },
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo'
+    }
   },
 };
 

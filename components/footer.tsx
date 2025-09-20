@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,8 +19,8 @@ export function Footer() {
               <div className="h-6 w-6 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
                 <span className="text-white font-bold text-xs">S</span>
               </div>
-              <span className="font-semibold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-                Sarah Dev
+              <span className=" font-semibold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+                Fateme Dev
               </span>
             </div>
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
@@ -52,7 +53,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-border/40 pt-4 text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} Sarah Dev. All rights reserved.
+            &copy; {new Date().getFullYear()} Fateme Dev. All rights reserved.
           </p>
         </div>
       </div>

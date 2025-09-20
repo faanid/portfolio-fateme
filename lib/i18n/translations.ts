@@ -218,7 +218,7 @@ export const translations = {
     // Hero Section
     hero: {
       greeting: "Hallo, ich bin",
-      name: "Sarah",
+      name: "Fateme",
       title: "Frontend-Entwicklerin",
       subtitle:
         "Moderne Web-Erlebnisse mit React, Next.js und TypeScript entwickeln",
