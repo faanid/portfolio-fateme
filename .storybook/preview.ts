@@ -1,12 +1,25 @@
-import type { Preview } from '@storybook/nextjs-vite'
+import type { Preview } from '@storybook/nextjs-vite';
+// import { ThemeProvider } from '../components/theme-provider';
+// import { ThemeProvider } from 'storybook/internal/theming';
+
+// export const decorators = [
+//   (Story) => (
+//     <ThemeProvider>
+//       <Story />
+//     </ThemeProvider>
+//   ),
+// ];
 
 const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
+    },
+    a11y: {
+      test: 'todo',
     },
   },
 };
