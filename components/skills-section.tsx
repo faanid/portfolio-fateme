@@ -59,9 +59,7 @@ export function SkillsSection() {
       const { data, error } = await supabase
         .from("skills")
         .select("*")
-        .order("proficiency", { ascending: false })
-        .order("name");
-
+console.log("data is: ",data);
       if (error) throw error;
       setSkills(data || []);
     } catch (error) {
@@ -133,7 +131,7 @@ export function SkillsSection() {
       </section>
     );
   }
-
+  console.log(groupedSkills);
   return (
     <section
       id="skills"
@@ -173,6 +171,7 @@ export function SkillsSection() {
                 value={category}
                 className="capitalize"
               >
+                
                 {category.replace("-", " ")}
               </TabsTrigger>
             ))}
