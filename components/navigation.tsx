@@ -12,9 +12,9 @@ import { Menu, Github, Linkedin, Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { name: "Email", href: "mailto:contact@example.com", icon: Mail },
+  { name: "GitHub", href: "https://github.com/faanid", icon: Github },
+  { name: "LinkedIn", href: "https://linkedin.com/fateme-kharazmi", icon: Linkedin },
+  { name: "Email", href: "mailto:fatemeekharazmi@gmail.com", icon: Mail },
 ];
 
 export function Navigation() {

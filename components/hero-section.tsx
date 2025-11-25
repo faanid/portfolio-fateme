@@ -16,7 +16,7 @@ const stats = [
 ];
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com/fateme-kharazmi", icon: Github },
+  { name: "GitHub", href: "https://github.com/faanid", icon: Github },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/fateme-kharazmi",

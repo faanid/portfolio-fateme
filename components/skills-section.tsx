@@ -163,7 +163,7 @@ console.log("data is: ",data);
           onValueChange={setActiveCategory}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 mb-8">
+          <TabsList className=" h-auto grid w-full grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 mb-8">
             <TabsTrigger value="all">All Skills</TabsTrigger>
             {Object.keys(groupedSkills).map((category) => (
               <TabsTrigger
