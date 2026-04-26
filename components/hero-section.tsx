@@ -15,13 +15,13 @@ const stats = [
 ];
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com/fateme-kharazmi", icon: Github },
+  { name: "GitHub", href: "https://github.com/faanid", icon: Github },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/fateme-kharazmi",
     icon: Linkedin,
   },
-  { name: "Email", href: "mailto:fatemeekharazmi@gmail.com", icon: Mail },
+  { name: "Email", href: "mailto:fatemekharazmie@gmail.com", icon: Mail },
 ];
 
 export function HeroSection() {

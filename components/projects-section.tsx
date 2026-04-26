@@ -211,7 +211,7 @@ export function ProjectsSection() {
         >
           <Button size="lg" variant="outline" asChild>
             <Link
-              href="https://github.com/fateme-kharazmi"
+              href="https://github.com/faanid"
               target="_blank"
               rel="noopener noreferrer"
             >
