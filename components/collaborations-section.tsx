@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Building, Clock, Users } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { createClient } from "@/lib/supabase/client";
 
 interface Collaboration {
   id: string;
@@ -31,13 +30,9 @@ export function CollaborationsSection() {
 
   const fetchCollaborations = async () => {
     try {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from("collaborations")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (error) throw error;
+      const response = await fetch("/api/collaborations");
+      if (!response.ok) throw new Error("Failed to fetch collaborations");
+      const data = await response.json();
       setCollaborations(data || []);
     } catch (error) {
       console.error("Error fetching collaborations:", error);

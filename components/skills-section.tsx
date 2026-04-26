@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
-import { createClient } from "@/lib/supabase/client";
 import {
   Code,
   Palette,
@@ -55,14 +54,9 @@ export function SkillsSection() {
 
   const fetchSkills = async () => {
     try {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from("skills")
-        .select("*")
-        .order("proficiency", { ascending: false })
-        .order("name");
-
-      if (error) throw error;
+      const response = await fetch("/api/skills");
+      if (!response.ok) throw new Error("Failed to fetch skills");
+      const data = await response.json();
       setSkills(data || []);
     } catch (error) {
       console.error("Error fetching skills:", error);
