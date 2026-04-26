@@ -28,7 +28,6 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { createClient } from "@/lib/supabase/client";
 
 interface ContactFormData {
   name: string;
@@ -126,15 +125,18 @@ export function ContactSection() {
     setContactError("");
 
     try {
-      const supabase = createClient();
-      const { error } = await supabase.from("contact_messages").insert({
-        name: contactForm.name,
-        email: contactForm.email,
-        subject: contactForm.subject,
-        message: contactForm.message,
+      const response = await fetch("/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: contactForm.name,
+          email: contactForm.email,
+          subject: contactForm.subject,
+          message: contactForm.message,
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Failed to send message");
 
       setContactForm({ name: "", email: "", subject: "", message: "" });
       setContactSuccess(true);
@@ -153,12 +155,13 @@ export function ContactSection() {
     setProjectError("");
 
     try {
-      const supabase = createClient();
-      const { error } = await supabase
-        .from("project_submissions")
-        .insert(projectForm);
+      const response = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(projectForm),
+      });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Failed to submit project");
 
       setProjectForm({
         company_name: "",

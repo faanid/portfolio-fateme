@@ -4,24 +4,42 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
 import { ProjectComments } from "@/components/project-comments";
 
 interface ProjectPageProps {
   params: Promise<{ id: string }>;
 }
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  long_description: string | null;
+  technologies: string[];
+  image_url: string | null;
+  live_url: string | null;
+  github_url: string | null;
+  featured: boolean;
+  created_at: string;
+}
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params;
-  const supabase = await createClient();
 
-  const { data: project, error } = await supabase
-    .from("projects")
-    .select("*")
-    .eq("id", id)
-    .single();
+  let project: Project | null = null;
+  try {
+    const response = await fetch(
+      `${process.env.VERCEL_URL || "http://localhost:3000"}/api/projects/${id}`,
+      { cache: "revalidate", next: { revalidate: 3600 } }
+    );
+    if (response.ok) {
+      project = await response.json();
+    }
+  } catch (error) {
+    console.error("Error fetching project:", error);
+  }
 
-  if (error || !project) {
+  if (!project) {
     notFound();
   }
 
@@ -146,22 +164,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 }
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { id } = await params;
-  const supabase = await createClient();
 
-  const { data: project } = await supabase
-    .from("projects")
-    .select("title, description")
-    .eq("id", id)
-    .single();
+  try {
+    const response = await fetch(
+      `${process.env.VERCEL_URL || "http://localhost:3000"}/api/projects/${id}`,
+      { cache: "revalidate", next: { revalidate: 3600 } }
+    );
+    const project = await response.json();
 
-  if (!project) {
+    if (!project) {
+      return {
+        title: "Project Not Found",
+      };
+    }
+
+    return {
+      title: `${project.title} - Fateme Dev Portfolio`,
+      description: project.description,
+    };
+  } catch (error) {
     return {
       title: "Project Not Found",
     };
   }
-
-  return {
-    title: `${project.title} - Fateme Dev Portfolio`,
-    description: project.description,
-  };
 }

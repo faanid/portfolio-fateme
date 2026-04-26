@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Eye } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { createClient } from "@/lib/supabase/client";
 
 interface Project {
   id: string;
@@ -32,14 +31,9 @@ export function ProjectsSection() {
 
   const fetchProjects = async () => {
     try {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from("projects")
-        .select("*")
-        .order("featured", { ascending: false })
-        .order("created_at", { ascending: false });
-
-      if (error) throw error;
+      const response = await fetch("/api/projects");
+      if (!response.ok) throw new Error("Failed to fetch projects");
+      const data = await response.json();
       setProjects(data || []);
     } catch (error) {
       console.error("Error fetching projects:", error);

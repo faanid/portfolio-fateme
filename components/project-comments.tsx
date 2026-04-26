@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MessageCircle, Send, User } from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
 import { motion } from "framer-motion";
 
 interface Comment {
@@ -40,14 +39,11 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
 
   const fetchComments = async () => {
     try {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from("project_comments")
-        .select("*")
-        .eq("project_id", projectId)
-        .order("created_at", { ascending: false });
-
-      if (error) throw error;
+      const response = await fetch(
+        `/api/comments?projectId=${encodeURIComponent(projectId)}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch comments");
+      const data = await response.json();
       setComments(data || []);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -62,15 +58,18 @@ export function ProjectComments({ projectId }: ProjectCommentsProps) {
 
     setSubmitting(true);
     try {
-      const supabase = createClient();
-      const { error } = await supabase.from("project_comments").insert({
-        project_id: projectId,
-        name: formData.name,
-        email: formData.email,
-        comment: formData.comment,
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project_id: projectId,
+          name: formData.name,
+          email: formData.email,
+          comment: formData.comment,
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error("Failed to submit comment");
 
       setFormData({ name: "", email: "", comment: "" });
       fetchComments(); // Refresh comments
