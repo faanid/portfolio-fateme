@@ -4,40 +4,23 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
-import { ProjectComments } from "@/components/project-comments";
+import { ProjectComments } from "@/components/projects/project-comments";
+import { projects } from "@/data/projects";
 
 interface ProjectPageProps {
   params: Promise<{ id: string }>;
 }
 
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  long_description: string | null;
-  technologies: string[];
-  image_url: string | null;
-  live_url: string | null;
-  github_url: string | null;
-  featured: boolean;
-  created_at: string;
+export function generateStaticParams() {
+  return projects.map((project) => ({ id: project.id }));
 }
+
+export const dynamicParams = false;
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params;
 
-  let project: Project | null = null;
-  try {
-    const response = await fetch(
-      `${process.env.VERCEL_URL || "http://localhost:3000"}/api/projects/${id}`,
-      { cache: "revalidate", next: { revalidate: 3600 } }
-    );
-    if (response.ok) {
-      project = await response.json();
-    }
-  } catch (error) {
-    console.error("Error fetching project:", error);
-  }
+  const project = projects.find((p) => p.id === id);
 
   if (!project) {
     notFound();
@@ -119,10 +102,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
         <Card className="mb-8 overflow-hidden">
           <img
-            src={
-              project.image_url ||
-              `/placeholder.svg?height=400&width=800&query=${encodeURIComponent(project.title + " project screenshot")}`
-            }
+            src={project.image_url || "/placeholder.svg"}
             alt={project.title}
             className="w-full h-64 md:h-96 object-cover"
           />
@@ -157,34 +137,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </CardContent>
         </Card>
 
-        <ProjectComments projectId={project.id} />
+        <ProjectComments projectId={project.id} projectTitle={project.title} />
       </div>
     </div>
   );
 }
+
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { id } = await params;
+  const project = projects.find((p) => p.id === id);
 
-  try {
-    const response = await fetch(
-      `${process.env.VERCEL_URL || "http://localhost:3000"}/api/projects/${id}`,
-      { cache: "revalidate", next: { revalidate: 3600 } }
-    );
-    const project = await response.json();
-
-    if (!project) {
-      return {
-        title: "Project Not Found",
-      };
-    }
-
-    return {
-      title: `${project.title} - Fateme Dev Portfolio`,
-      description: project.description,
-    };
-  } catch (error) {
+  if (!project) {
     return {
       title: "Project Not Found",
     };
   }
+
+  return {
+    title: `${project.title} - Fateme Dev Portfolio`,
+    description: project.description,
+  };
 }

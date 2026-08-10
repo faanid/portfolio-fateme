@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/layout/theme-provider";
 import { I18nProvider } from "@/lib/i18n/context";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/layout/navigation";
+import { Footer } from "@/components/layout/footer";
 import { Suspense } from "react";
 import "./globals.css";
 

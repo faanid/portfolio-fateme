@@ -1,4 +1,4 @@
-import { db } from '@/lib/neon/client';
+import { sendPortfolioEmail } from "@/lib/email/mailer";
 
 export async function POST(request: Request) {
   try {
@@ -24,35 +24,33 @@ export async function POST(request: Request) {
       !project_description
     ) {
       return Response.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
+        { error: "Missing required fields" },
+        { status: 400 },
       );
     }
 
-    const result = await db.query(
-      `INSERT INTO project_submissions (
-        company_name, contact_name, email, phone, project_title, 
-        project_description, budget_range, timeline, technologies, priority
-      )
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
-      RETURNING *`,
-      [
-        company_name,
-        contact_name,
-        email,
-        phone || null,
-        project_title,
+    await sendPortfolioEmail({
+      subject: `New project submission: ${project_title}`,
+      text: [
+        `Company: ${company_name}`,
+        `Contact: ${contact_name}`,
+        `Email: ${email}`,
+        `Phone: ${phone || "-"}`,
+        `Project title: ${project_title}`,
+        `Budget range: ${budget_range || "-"}`,
+        `Timeline: ${timeline || "-"}`,
+        `Priority: ${priority || "medium"}`,
+        `Technologies: ${(technologies || []).join(", ") || "-"}`,
+        "",
+        "Description:",
         project_description,
-        budget_range || null,
-        timeline || null,
-        technologies || [],
-        priority || 'medium',
-      ]
-    );
+      ].join("\n"),
+      replyTo: email,
+    });
 
-    return Response.json(result.rows[0], { status: 201 });
+    return Response.json({ success: true }, { status: 201 });
   } catch (error) {
-    console.error('Error creating submission:', error);
-    return Response.json({ error: 'Failed to submit project' }, { status: 500 });
+    console.error("Error sending project submission:", error);
+    return Response.json({ error: "Failed to submit project" }, { status: 500 });
   }
 }
