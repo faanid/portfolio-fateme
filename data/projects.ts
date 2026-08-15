@@ -1,109 +1,92 @@
 import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
-  {
-    id: "smart-cctv-dashboard",
-    title: "Smart CCTV Dashboard",
-    description:
-      "Real-time monitoring dashboard for smart CCTV system with WebSocket integration and responsive design.",
-    long_description:
-      "Built a comprehensive dashboard for a smart CCTV system featuring real-time charts with WebSocket connectivity, achieving <1s data-update latency for critical views. Implemented componentized UI using Material UI and integrated Zustand for state management. The dashboard provides live monitoring capabilities with responsive design for various screen sizes.",
-    technologies: ["React.js", "Material UI", "WebSocket", "Zustand", "TypeScript", "Real-time Charts"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: true,
-    created_at: "2025-08-01T00:00:00.000Z",
-  },
-  {
-    id: "reusable-icon-component-library",
-    title: "Reusable Icon Component Library",
-    description: "SVG React component library with offline support and comprehensive documentation.",
-    long_description:
-      "Developed a comprehensive library of reusable icon components as SVG React components with Zustand state management to support offline display. Created detailed documentation in Storybook following Atomic Design principles to maintain consistency across applications. The library includes over 100+ icons with customizable sizes, colors, and variants.",
-    technologies: ["React.js", "SVG", "Zustand", "Storybook", "TypeScript", "Atomic Design"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: true,
-    created_at: "2025-07-01T00:00:00.000Z",
-  },
-  {
-    id: "form-validation-system",
-    title: "Form Validation System",
-    description: "Advanced form system with React Hook Form and Zod validation for dashboard applications.",
-    long_description:
-      "Implemented a robust dashboard form system using React Hook Form with Zod for comprehensive input validation and error handling. The system provides real-time validation feedback, custom error messages, and seamless user experience. Includes support for complex nested forms and dynamic field validation.",
-    technologies: ["React Hook Form", "Zod", "TypeScript", "Form Validation", "React.js"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: false,
-    created_at: "2025-06-01T00:00:00.000Z",
-  },
-  {
-    id: "feature-based-architecture-refactor",
-    title: "Feature-Based Architecture Refactor",
-    description: "Complete front-end refactoring project implementing feature-based architecture with reusable components.",
-    long_description:
-      "Led a comprehensive refactoring initiative to transform the front-end into a feature-based architecture. Built reusable React components and UI primitives with shadcn to improve maintainability and accelerate feature development. The new architecture reduced code duplication by 40% and improved development velocity.",
-    technologies: ["React.js", "shadcn", "TypeScript", "Architecture", "Component Library"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: true,
-    created_at: "2025-05-01T00:00:00.000Z",
-  },
-  {
-    id: "data-flow-standardization",
-    title: "Data Flow Standardization",
-    description: "Standardized client-side data flows using TanStack Query with comprehensive error handling.",
-    long_description:
-      "Standardized client-side data flows and error handling using TanStack Query for fetch/retry/cache functionality. Integrated backend endpoints via Axios for consistent, testable request flows. Implemented comprehensive error boundaries and loading states for improved user experience.",
-    technologies: ["TanStack Query", "Axios", "React.js", "Error Handling", "TypeScript"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: false,
-    created_at: "2025-04-01T00:00:00.000Z",
-  },
-  {
-    id: "figma-to-code-implementation",
-    title: "Figma to Code Implementation",
-    description: "Pixel-perfect implementation of Figma designs using React and Tailwind CSS.",
-    long_description:
-      "Translated complex UI mockups from Figma into responsive front-end components using React and Tailwind CSS. Ensured pixel-perfect implementation while maintaining consistency with the design system. Implemented responsive breakpoints and accessibility features following WCAG guidelines.",
-    technologies: ["React.js", "Tailwind CSS", "Figma", "Responsive Design", "Accessibility"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: false,
-    created_at: "2025-03-01T00:00:00.000Z",
-  },
-  {
-    id: "authentication-session-management",
-    title: "Authentication & Session Management",
-    description: "Complete authentication system with NextAuth and MongoDB integration.",
-    long_description:
-      "Implemented comprehensive authentication and session flows using NextAuth with custom Express.js endpoints. Designed user models and relations in MongoDB with Prisma ORM. Integrated client calls via Axios and validated endpoints with Postman to ensure stable client-server contracts.",
-    technologies: ["NextAuth", "Express.js", "MongoDB", "Prisma", "Axios", "Postman"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: true,
-    created_at: "2025-02-01T00:00:00.000Z",
-  },
-  {
-    id: "security-error-handling",
-    title: "Security & Error Handling",
-    description: "Robust client-side security implementation with comprehensive error handling.",
-    long_description:
-      "Built comprehensive client-side error handling, retry logic, and form validation for authentication and profile flows. Added input sanitization and token handling to mitigate XSS risks. Enforced server-side checks to maintain secure and predictable authentication flows.",
-    technologies: ["Security", "Error Handling", "XSS Prevention", "Token Management", "Form Validation"],
-    image_url: "/placeholder.svg",
-    live_url: null,
-    github_url: null,
-    featured: false,
-    created_at: "2025-01-01T00:00:00.000Z",
-  },
+{
+id: "nectar",
+title: "Nectar – Tour Booking API",
+description:
+"A scalable and secure RESTful backend for a tour booking platform, featuring authentication, user management, tours, reviews, bookings, and advanced MongoDB queries.",
+long_description:
+"Built a backend application for a tour and travel platform using Node.js, Express, MongoDB, and Mongoose. Implemented RESTful APIs for managing users, tours, reviews, and bookings, with JWT-based authentication, role-based authorization, password reset functionality, and secure account management. Added advanced API features including filtering, sorting, pagination, aggregation pipelines, and geospatial queries. Improved application security using Helmet, rate limiting, data sanitization, XSS protection, and MongoDB injection prevention.",
+technologies: [
+"Node.js",
+"Express.js",
+"MongoDB",
+"Mongoose",
+"JavaScript",
+"REST API",
+"JWT",
+"bcrypt",
+"Helmet",
+"Express Rate Limit",
+"Nodemailer"
+],
+image_url: "/images/nectar.jpg",
+live_url: null,
+github_url: "https://github.com/faanid/nectar",
+featured: true,
+created_at: "2026-06-27T00:00:00.000Z",
+},
+
+ {
+id: "leetcode-solutions",
+title: "LeetCode Solutions",
+description:
+"A collection of algorithm and data structure solutions built to strengthen problem-solving skills and practice coding interview patterns.",
+long_description:
+"An ongoing practice repository focused on improving problem-solving, algorithms, and data structure skills. Each solution includes the problem reference, implementation, explanation of the approach, and time and space complexity analysis. Solutions are primarily written in TypeScript, with some JavaScript implementations, and the repository is structured to support continued practice across different difficulty levels and programming languages.",
+technologies: [
+"TypeScript",
+"JavaScript",
+"Data Structures",
+"Algorithms",
+"Problem Solving",
+"Big O",
+"LeetCode"
+],
+image_url: "/images/leetcode-solutions.jpg",
+live_url: null,
+github_url: "https://github.com/faanid/leetcode-solutions",
+featured: true,
+created_at: "2025-08-10T00:00:00.000Z",
+},
+{
+id: "cyberia-tech-challenge",
+title: "Architecture Firm Portfolio",
+description:
+"A responsive architecture portfolio website built as a frontend technical challenge, featuring project listings, detailed project pages, image galleries, and a validated contact form.",
+long_description:
+"Developed a responsive React-based architecture firm portfolio as part of a frontend technical challenge. Built the application with Next.js and TypeScript, creating reusable UI components and responsive layouts for the homepage, portfolio grid, and project detail pages. Implemented project galleries with image carousels and added client-side form validation for the contact section, with a focus on translating the required UI scenario into a clean and maintainable frontend application.",
+technologies: [
+"Next.js",
+"React.js",
+"TypeScript",
+"JavaScript",
+"Tailwind CSS",
+"Responsive Design",
+"Form Validation"
+],
+image_url: "/images/cyberia-tech-challenge.jpg",
+live_url: "https://cyberia-tech-challenge.netlify.app/",
+github_url: "https://github.com/faanid/cyberia-tech-challenge",
+featured: true,
+created_at: "2025-08-01T00:00:00.000Z",
+},
+
+
+
+  // {
+  //   id: "figma-to-code-implementation",
+  //   title: "Figma to Code Implementation",
+  //   description: "Pixel-perfect implementation of Figma designs using React and Tailwind CSS.",
+  //   long_description:
+  //     "Translated complex UI mockups from Figma into responsive front-end components using React and Tailwind CSS. Ensured pixel-perfect implementation while maintaining consistency with the design system. Implemented responsive breakpoints and accessibility features following WCAG guidelines.",
+  //   technologies: ["React.js", "Tailwind CSS", "Figma", "Responsive Design", "Accessibility"],
+  //   image_url: "/placeholder.svg",
+  //   live_url: null,
+  //   github_url: null,
+  //   featured: false,
+  //   created_at: "2025-03-01T00:00:00.000Z",
+  // },
+
 ];

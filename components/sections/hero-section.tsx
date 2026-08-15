@@ -12,7 +12,7 @@ const socialLinks = [
   { name: "GitHub", href: "https://github.com/faanid", icon: Github },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/fateme-kharazmi",
+    href: "https://www.linkedin.com/in/fateme-kharazmi/",
     icon: Linkedin,
   },
   { name: "Email", href: "mailto:fatemekharazmie@gmail.com", icon: Mail },

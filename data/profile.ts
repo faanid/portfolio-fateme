@@ -18,6 +18,6 @@ export const stats = [
 
 export const socialLinks = [
   { name: "GitHub", href: "https://github.com/faanid", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com/in/fateme-kharazmi", icon: Linkedin },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/fateme-kharazmi/", icon: Linkedin },
   { name: "Email", href: "fatemekharazmie@gmail.com", icon: Mail },
 ];

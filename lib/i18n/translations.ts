@@ -1,6 +1,5 @@
 export const translations = {
   en: {
-    // Navigation
     nav: {
       home: "Home",
       about: "About",
@@ -9,9 +8,8 @@ export const translations = {
       collaborations: "Collaborations",
       contact: "Contact",
     },
-    // Hero Section
     hero: {
-      greeting: "Quack🦆",
+      greeting: "Quack?🦆",
       name: "Fateme",
       title: "Frontend Developer",
       subtitle:
@@ -29,13 +27,12 @@ export const translations = {
         technologies: "Technologies",
       },
     },
-    // About Section
     about: {
       badge: "About Me",
       title: "Passionate Developer",
       subtitle: "Creating Digital Experiences",
       description:
-        "I'm a frontend developer based in Berlin, Germany, with a passion for creating beautiful, functional web applications. I specialize in React.js, Next.js, and TypeScript, and I'm always eager to learn new technologies and take on challenging projects.",
+        "I'm a frontend developer with a passion for creating beautiful, functional web applications. I specialize in React.js, Next.js, and TypeScript, and I'm always eager to learn new technologies and take on challenging projects.",
       highlights: {
         responsive: {
           title: "Responsive Design",
@@ -59,7 +56,6 @@ export const translations = {
       },
       cta: "Download Resume",
     },
-    // Projects Section
     projects: {
       badge: "My Work",
       title: "Featured",
@@ -78,7 +74,6 @@ export const translations = {
       },
       noProjects: "No projects found for the selected filter.",
     },
-    // Skills Section
     skills: {
       badge: "Skills",
       title: "Technical",
@@ -97,7 +92,6 @@ export const translations = {
         level: "Level",
       },
     },
-    // Collaborations Section
     collaborations: {
       badge: "Collaborations",
       title: "Professional",
@@ -112,7 +106,6 @@ export const translations = {
       },
       empty: "Collaboration details will be updated soon.",
     },
-    // Contact Section
     contact: {
       badge: "Get In Touch",
       title: "Let's Work",
@@ -124,7 +117,7 @@ export const translations = {
         email: "Email",
         phone: "Phone",
         location: "Location",
-        locationValue: "Berlin, Germany / Remote",
+        locationValue: "On Site / Remote",
         responseTime: "Response Time",
         generalInquiries: "General Inquiries",
         projectProposals: "Project Proposals",
@@ -179,7 +172,6 @@ export const translations = {
         error: "Failed to submit project. Please try again.",
       },
     },
-    // Project Detail Page
     projectDetail: {
       backToProjects: "Back to Projects",
       aboutProject: "About This Project",
@@ -196,7 +188,6 @@ export const translations = {
         submitting: "Submitting...",
       },
     },
-    // Common
     common: {
       required: "*",
       featured: "Featured",
@@ -206,7 +197,6 @@ export const translations = {
     },
   },
   de: {
-    // Navigation
     nav: {
       home: "Startseite",
       about: "Über mich",
@@ -215,7 +205,6 @@ export const translations = {
       collaborations: "Zusammenarbeit",
       contact: "Kontakt",
     },
-    // Hero Section
     hero: {
       greeting: "Hallo, ich bin",
       name: "Fateme",
@@ -235,13 +224,12 @@ export const translations = {
         technologies: "Technologien",
       },
     },
-    // About Section
     about: {
       badge: "Über mich",
       title: "Leidenschaftliche Entwicklerin",
       subtitle: "Digitale Erlebnisse schaffen",
       description:
-        "Ich bin eine Frontend-Entwicklerin aus Berlin, Deutschland, mit einer Leidenschaft für die Erstellung schöner, funktionaler Webanwendungen. Ich spezialisiere mich auf React.js, Next.js und TypeScript und bin immer bereit, neue Technologien zu lernen und herausfordernde Projekte anzunehmen.",
+        "Ich bin eine Frontend-Entwicklerin mit einer Leidenschaft für die Erstellung schöner, funktionaler Webanwendungen. Ich spezialisiere mich auf React.js, Next.js und TypeScript und bin immer bereit, neue Technologien zu lernen und herausfordernde Projekte anzunehmen.",
       highlights: {
         responsive: {
           title: "Responsive Design",
@@ -266,7 +254,6 @@ export const translations = {
       },
       cta: "Lebenslauf herunterladen",
     },
-    // Projects Section
     projects: {
       badge: "Meine Arbeit",
       title: "Ausgewählte",
@@ -285,7 +272,6 @@ export const translations = {
       },
       noProjects: "Keine Projekte für den ausgewählten Filter gefunden.",
     },
-    // Skills Section
     skills: {
       badge: "Fähigkeiten",
       title: "Technische",
@@ -304,7 +290,6 @@ export const translations = {
         level: "Niveau",
       },
     },
-    // Collaborations Section
     collaborations: {
       badge: "Zusammenarbeit",
       title: "Berufliche",
@@ -319,7 +304,6 @@ export const translations = {
       },
       empty: "Details zur Zusammenarbeit werden bald aktualisiert.",
     },
-    // Contact Section
     contact: {
       badge: "Kontakt aufnehmen",
       title: "Lass uns",
@@ -331,7 +315,7 @@ export const translations = {
         email: "E-Mail",
         phone: "Telefon",
         location: "Standort",
-        locationValue: "Berlin, Deutschland / Remote",
+        locationValue: "On Site / Remote",
         responseTime: "Antwortzeit",
         generalInquiries: "Allgemeine Anfragen",
         projectProposals: "Projektvorschläge",
@@ -390,7 +374,6 @@ export const translations = {
           "Projekt konnte nicht eingereicht werden. Bitte versuchen Sie es erneut.",
       },
     },
-    // Project Detail Page
     projectDetail: {
       backToProjects: "Zurück zu Projekten",
       aboutProject: "Über dieses Projekt",
@@ -408,7 +391,6 @@ export const translations = {
         submitting: "Wird gesendet...",
       },
     },
-    // Common
     common: {
       required: "*",
       featured: "Ausgewählt",

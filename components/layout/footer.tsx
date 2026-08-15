@@ -6,16 +6,16 @@ import { socialLinks } from "@/data/profile";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background/95">
+    <footer className=" ml-10 border-t border-border/40 bg-background/95">
       <div className="container max-w-screen-2xl py-8">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <div className="flex items-center space-x-2">
               <div className="h-6 w-6 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
-                <span className="text-white font-bold text-xs">S</span>
+                <span className="text-white font-bold text-xs">F</span>
               </div>
-              <span className=" font-semibold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-                Fateme Dev
+              <span className=" font-semibold bg-gradient-to-r from-purple-600 ml-3 to-purple-800 bg-clip-text text-transparent">
+                Fateme
               </span>
             </div>
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
@@ -48,7 +48,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-border/40 pt-4 text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} Fateme Dev. All rights reserved.
+            &copy; {new Date().getFullYear()} Fateme Kharazmi. All rights reserved.
           </p>
         </div>
       </div>

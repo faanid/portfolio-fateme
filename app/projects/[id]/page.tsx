@@ -154,7 +154,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   }
 
   return {
-    title: `${project.title} - Fateme Dev Portfolio`,
+    title: `${project.title} - Fateme Portfolio`,
     description: project.description,
   };
 }
