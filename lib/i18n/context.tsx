@@ -16,12 +16,10 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
-    // Load language from localStorage or browser preference
     const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "de")) {
       setLanguage(savedLanguage);
     } else {
-      // Detect browser language
       const browserLang = navigator.language.toLowerCase();
       if (browserLang.startsWith("de")) {
         setLanguage("de");
@@ -30,9 +28,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    // Save language to localStorage
     localStorage.setItem("language", language);
-    // Update document language
     document.documentElement.lang = language;
   }, [language]);
 
@@ -44,13 +40,12 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       if (value && typeof value === "object" && k in value) {
         value = value[k];
       } else {
-        // Fallback to English if key not found
         value = translations.en;
         for (const fallbackKey of keys) {
           if (value && typeof value === "object" && fallbackKey in value) {
             value = value[fallbackKey];
           } else {
-            return key; // Return key if not found in fallback
+            return key; 
           }
         }
         break;

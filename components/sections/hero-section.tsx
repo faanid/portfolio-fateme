@@ -12,10 +12,10 @@ const socialLinks = [
   { name: "GitHub", href: "https://github.com/faanid", icon: Github },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/fateme-kharazmi/",
+    href: "https://www.linkedin.com/in/fateme-kharazmi//",
     icon: Linkedin,
   },
-  { name: "Email", href: "mailto:fatemekharazmie@gmail.com", icon: Mail },
+  { name: "Email", href: "https://mail.google.com/mail/?view=cm&fs=1&to=fatemekharazmie@gmail.com", icon: Mail },
 ];
 
 export function HeroSection() {
@@ -23,7 +23,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-purple-950/20 dark:via-gray-900 dark:to-purple-900/20">
-      {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-blob"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-300 dark:bg-pink-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -32,7 +31,7 @@ export function HeroSection() {
 
       <div className="container relative z-10 max-w-screen-xl mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+       
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

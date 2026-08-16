@@ -11,9 +11,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <div className="flex items-center space-x-2">
-              <div className="h-6 w-6 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
-                <span className="text-white font-bold text-xs">F</span>
-              </div>
+             
               <span className=" font-semibold bg-gradient-to-r from-purple-600 ml-3 to-purple-800 bg-clip-text text-transparent">
                 Fateme
               </span>

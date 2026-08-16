@@ -66,7 +66,7 @@ technologies: [
 "Responsive Design",
 "Form Validation"
 ],
-image_url: "/images/cyberia-tech-challenge.jpg",
+image_url: "/images/cyberiaa.jpg",
 live_url: "https://cyberia-tech-challenge.netlify.app/",
 github_url: "https://github.com/faanid/cyberia-tech-challenge",
 featured: true,

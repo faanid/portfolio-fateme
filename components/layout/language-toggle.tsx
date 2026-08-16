@@ -10,6 +10,7 @@ import {
 import { Languages } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
+
 const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "de", name: "Deutsch", flag: "🇩🇪" },
@@ -17,6 +18,7 @@ const languages = [
 
 export function LanguageToggle() {
   const { language, setLanguage } = useI18n();
+console.log("Current language:", language);
 
   const currentLanguage = languages.find((lang) => lang.code === language);
 

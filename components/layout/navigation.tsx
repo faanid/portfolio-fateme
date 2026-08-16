@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -30,9 +31,14 @@ export function Navigation() {
     <header className=" sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className=" ml-5 flex items-center space-x-2">
-          <div className="h-8 w-8 ml-10 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
-            <span className="text-white font-bold text-sm">F</span>
-          </div>
+         <div className="relative ml-10 h-8 w-8 overflow-hidden rounded-full">
+  <Image
+    src="/images/profile/fateme-kh1.jpg"
+    alt="Fateme"
+    fill
+    className="object-cover"
+  />
+</div>
           <span className="font-bold text-xl bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
             Fateme
           </span>
@@ -56,7 +62,7 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center space-x-2">
-          {/* Social Links */}
+         
           <div className="hidden md:flex items-center space-x-1">
             {socialLinks.map((link) => (
               <Button
@@ -81,7 +87,6 @@ export function Navigation() {
           <LanguageToggle />
           <ThemeToggle />
 
-          {/* Mobile Navigation */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden h-9 w-9">
