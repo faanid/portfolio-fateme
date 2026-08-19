@@ -30,7 +30,7 @@ const categoryIcons = {
 const categoryColors = {
   frontend: "from-blue-500 to-cyan-500",
   backend: "from-green-500 to-emerald-500",
-  "state-management": "from-purple-500 to-violet-500",
+  "state-management": "from-coffee-500 to-coffee-700",
   design: "from-pink-500 to-rose-500",
   tools: "from-orange-500 to-amber-500",
   mobile: "from-indigo-500 to-blue-500",
@@ -70,7 +70,7 @@ export function SkillsSection() {
   const getProficiencyColor = (proficiency: number) => {
     if (proficiency >= 5) return "text-green-600 dark:text-green-400";
     if (proficiency >= 4) return "text-blue-600 dark:text-blue-400";
-    if (proficiency >= 3) return "text-purple-600 dark:text-purple-400";
+    if (proficiency >= 3) return "text-coffee-600 dark:text-coffee-400";
     if (proficiency >= 2) return "text-orange-600 dark:text-orange-400";
     return "text-gray-600 dark:text-gray-400";
   };
@@ -78,7 +78,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10"
+      className="py-20 bg-gradient-to-b from-background to-coffee-50/30 dark:to-coffee-950/10"
     >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div

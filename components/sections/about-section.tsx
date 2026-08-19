@@ -63,7 +63,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10"
+      className="py-20 bg-gradient-to-b from-background to-coffee-50/30 dark:to-coffee-950/10"
     >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
@@ -147,7 +147,7 @@ export function AboutSection() {
               >
                 <Card className="text-center p-6 hover:shadow-lg transition-shadow">
                   <CardContent className="p-0">
-                    <item.icon className="h-8 w-8 mx-auto mb-3 text-purple-600 dark:text-purple-400" />
+                    <item.icon className="h-8 w-8 mx-auto mb-3 text-coffee-600 dark:text-coffee-400" />
                     <div className="text-2xl font-bold mb-1">{item.value}</div>
                     <div className="text-sm text-muted-foreground">
                       {item.label}
@@ -177,7 +177,7 @@ export function AboutSection() {
             >
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
-                  <value.icon className="h-8 w-8 mb-4 text-purple-600 dark:text-purple-400" />
+                  <value.icon className="h-8 w-8 mb-4 text-coffee-600 dark:text-coffee-400" />
                   <h4 className="text-xl font-semibold mb-3">{value.title}</h4>
                   <p className="text-muted-foreground">{value.description}</p>
                 </CardContent>
