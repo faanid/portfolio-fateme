@@ -4,81 +4,92 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color scheme to dark purple theme */
-  --background: oklch(0.98 0.01 270);
-  --foreground: oklch(0.15 0.02 270);
-  --card: oklch(0.98 0.01 270);
-  --card-foreground: oklch(0.15 0.02 270);
-  --popover: oklch(0.98 0.01 270);
-  --popover-foreground: oklch(0.15 0.02 270);
-  --primary: oklch(0.45 0.15 270);
-  --primary-foreground: oklch(0.98 0.01 270);
-  --secondary: oklch(0.94 0.02 270);
-  --secondary-foreground: oklch(0.25 0.03 270);
-  --muted: oklch(0.94 0.02 270);
-  --muted-foreground: oklch(0.55 0.05 270);
-  --accent: oklch(0.94 0.02 270);
-  --accent-foreground: oklch(0.25 0.03 270);
+  /* Coffee / espresso / cream theme */
+  --background: oklch(0.97 0.01 75);
+  --foreground: oklch(0.24 0.035 45);
+  --card: oklch(0.99 0.006 70);
+  --card-foreground: oklch(0.24 0.035 45);
+  --popover: oklch(0.99 0.006 70);
+  --popover-foreground: oklch(0.24 0.035 45);
+  --primary: oklch(0.4 0.07 48);
+  --primary-foreground: oklch(0.98 0.01 75);
+  --secondary: oklch(0.91 0.02 68);
+  --secondary-foreground: oklch(0.3 0.04 45);
+  --muted: oklch(0.91 0.02 68);
+  --muted-foreground: oklch(0.5 0.035 50);
+  --accent: oklch(0.87 0.03 62);
+  --accent-foreground: oklch(0.3 0.04 45);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0.01 270);
-  --border: oklch(0.9 0.02 270);
-  --input: oklch(0.9 0.02 270);
-  --ring: oklch(0.45 0.15 270);
-  --chart-1: oklch(0.55 0.15 270);
-  --chart-2: oklch(0.65 0.12 300);
-  --chart-3: oklch(0.75 0.1 240);
-  --chart-4: oklch(0.6 0.18 290);
-  --chart-5: oklch(0.7 0.14 250);
+  --destructive-foreground: oklch(0.98 0.01 75);
+  --border: oklch(0.85 0.025 60);
+  --input: oklch(0.85 0.025 60);
+  --ring: oklch(0.4 0.07 48);
+  --chart-1: oklch(0.55 0.09 50);
+  --chart-2: oklch(0.65 0.07 65);
+  --chart-3: oklch(0.75 0.05 78);
+  --chart-4: oklch(0.45 0.08 40);
+  --chart-5: oklch(0.6 0.06 58);
   --radius: 0.625rem;
-  --sidebar: oklch(0.96 0.01 270);
-  --sidebar-foreground: oklch(0.15 0.02 270);
-  --sidebar-primary: oklch(0.45 0.15 270);
-  --sidebar-primary-foreground: oklch(0.98 0.01 270);
-  --sidebar-accent: oklch(0.94 0.02 270);
-  --sidebar-accent-foreground: oklch(0.25 0.03 270);
-  --sidebar-border: oklch(0.9 0.02 270);
-  --sidebar-ring: oklch(0.45 0.15 270);
+  --sidebar: oklch(0.95 0.012 72);
+  --sidebar-foreground: oklch(0.24 0.035 45);
+  --sidebar-primary: oklch(0.4 0.07 48);
+  --sidebar-primary-foreground: oklch(0.98 0.01 75);
+  --sidebar-accent: oklch(0.87 0.03 62);
+  --sidebar-accent-foreground: oklch(0.3 0.04 45);
+  --sidebar-border: oklch(0.85 0.025 60);
+  --sidebar-ring: oklch(0.4 0.07 48);
 }
 
 .dark {
-  /* Dark mode with deep purple and black theme */
-  --background: oklch(0.08 0.02 270);
-  --foreground: oklch(0.95 0.01 270);
-  --card: oklch(0.12 0.03 270);
-  --card-foreground: oklch(0.95 0.01 270);
-  --popover: oklch(0.08 0.02 270);
-  --popover-foreground: oklch(0.95 0.01 270);
-  --primary: oklch(0.65 0.18 270);
-  --primary-foreground: oklch(0.08 0.02 270);
-  --secondary: oklch(0.18 0.04 270);
-  --secondary-foreground: oklch(0.95 0.01 270);
-  --muted: oklch(0.18 0.04 270);
-  --muted-foreground: oklch(0.65 0.05 270);
-  --accent: oklch(0.18 0.04 270);
-  --accent-foreground: oklch(0.95 0.01 270);
+  /* Deep espresso dark mode with warm coffee/caramel accents */
+  --background: oklch(0.17 0.02 48);
+  --foreground: oklch(0.95 0.014 70);
+  --card: oklch(0.21 0.025 48);
+  --card-foreground: oklch(0.95 0.014 70);
+  --popover: oklch(0.17 0.02 48);
+  --popover-foreground: oklch(0.95 0.014 70);
+  --primary: oklch(0.72 0.08 62);
+  --primary-foreground: oklch(0.17 0.02 48);
+  --secondary: oklch(0.27 0.03 50);
+  --secondary-foreground: oklch(0.95 0.014 70);
+  --muted: oklch(0.27 0.03 50);
+  --muted-foreground: oklch(0.66 0.03 58);
+  --accent: oklch(0.3 0.035 54);
+  --accent-foreground: oklch(0.95 0.014 70);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0.01 270);
-  --border: oklch(0.22 0.04 270);
-  --input: oklch(0.22 0.04 270);
-  --ring: oklch(0.65 0.18 270);
-  --chart-1: oklch(0.65 0.18 270);
-  --chart-2: oklch(0.75 0.15 300);
-  --chart-3: oklch(0.85 0.12 240);
-  --chart-4: oklch(0.7 0.2 290);
-  --chart-5: oklch(0.8 0.16 250);
-  --sidebar: oklch(0.12 0.03 270);
-  --sidebar-foreground: oklch(0.95 0.01 270);
-  --sidebar-primary: oklch(0.65 0.18 270);
-  --sidebar-primary-foreground: oklch(0.08 0.02 270);
-  --sidebar-accent: oklch(0.18 0.04 270);
-  --sidebar-accent-foreground: oklch(0.95 0.01 270);
-  --sidebar-border: oklch(0.22 0.04 270);
-  --sidebar-ring: oklch(0.65 0.18 270);
+  --destructive-foreground: oklch(0.95 0.014 70);
+  --border: oklch(0.33 0.03 54);
+  --input: oklch(0.33 0.03 54);
+  --ring: oklch(0.72 0.08 62);
+  --chart-1: oklch(0.72 0.08 62);
+  --chart-2: oklch(0.62 0.07 48);
+  --chart-3: oklch(0.8 0.05 78);
+  --chart-4: oklch(0.52 0.09 40);
+  --chart-5: oklch(0.75 0.045 68);
+  --sidebar: oklch(0.21 0.025 48);
+  --sidebar-foreground: oklch(0.95 0.014 70);
+  --sidebar-primary: oklch(0.72 0.08 62);
+  --sidebar-primary-foreground: oklch(0.17 0.02 48);
+  --sidebar-accent: oklch(0.3 0.035 54);
+  --sidebar-accent-foreground: oklch(0.95 0.014 70);
+  --sidebar-border: oklch(0.33 0.03 54);
+  --sidebar-ring: oklch(0.72 0.08 62);
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-coffee-50: oklch(0.97 0.012 75);
+  --color-coffee-100: oklch(0.94 0.02 72);
+  --color-coffee-200: oklch(0.88 0.03 68);
+  --color-coffee-300: oklch(0.8 0.045 64);
+  --color-coffee-400: oklch(0.68 0.06 58);
+  --color-coffee-500: oklch(0.56 0.07 52);
+  --color-coffee-600: oklch(0.46 0.075 48);
+  --color-coffee-700: oklch(0.37 0.065 45);
+  --color-coffee-800: oklch(0.29 0.05 42);
+  --color-coffee-900: oklch(0.22 0.035 40);
+  --color-coffee-950: oklch(0.15 0.025 38);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -151,10 +162,10 @@
 /* Added gradient text utility */
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-coffee-600 to-coffee-800 dark:from-coffee-400 dark:to-coffee-600 bg-clip-text text-transparent;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-purple-600/10 to-purple-800/10 dark:from-purple-400/10 dark:to-purple-600/10;
+    @apply bg-gradient-to-br from-coffee-600/10 to-coffee-800/10 dark:from-coffee-400/10 dark:to-coffee-600/10;
   }
 }

@@ -12,7 +12,7 @@ export function CollaborationsSection() {
   return (
     <section
       id="collaborations"
-      className="py-20 bg-gradient-to-b from-purple-50/30 to-background dark:from-purple-950/10 dark:to-background"
+      className="py-20 bg-gradient-to-b from-coffee-50/30 to-background dark:from-coffee-950/10 dark:to-background"
     >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div
@@ -76,7 +76,7 @@ export function CollaborationsSection() {
                   <CardContent className="p-6">
                     {!collaboration.image_url && (
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
+                        <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-coffee-600 to-coffee-800 flex items-center justify-center">
                           <Building className="h-6 w-6 text-white" />
                         </div>
                         <div>

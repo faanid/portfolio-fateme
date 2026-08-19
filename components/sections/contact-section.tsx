@@ -198,7 +198,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-b from-background to-purple-50/30 dark:to-purple-950/10"
+      className="py-20 bg-gradient-to-b from-background to-coffee-50/30 dark:to-coffee-950/10"
     >
       <div className="container max-w-screen-xl mx-auto px-4">
         <motion.div

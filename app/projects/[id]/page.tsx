@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             {project.featured && (
-              <Badge className="bg-purple-600 hover:bg-purple-700">
+              <Badge className="bg-coffee-600 hover:bg-coffee-700">
                 Featured
               </Badge>
             )}
@@ -129,7 +129,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   key={tech}
                   className="flex items-center gap-2 p-3 bg-muted rounded-lg"
                 >
-                  <div className="h-2 w-2 bg-purple-600 rounded-full"></div>
+                  <div className="h-2 w-2 bg-coffee-600 rounded-full"></div>
                   <span className="font-medium">{tech}</span>
                 </div>
               ))}

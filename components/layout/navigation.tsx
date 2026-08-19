@@ -39,7 +39,7 @@ export function Navigation() {
     className="object-cover"
   />
 </div>
-          <span className="font-bold text-xl bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+          <span className="font-bold text-xl bg-gradient-to-r from-coffee-600 to-coffee-800 bg-clip-text text-transparent">
             Fateme
           </span>
         </Link>
@@ -50,9 +50,9 @@ export function Navigation() {
               key={item.href}
               href={item.href}
               className={cn(
-                "transition-colors hover:text-purple-600 dark:hover:text-purple-400",
+                "transition-colors hover:text-coffee-600 dark:hover:text-coffee-400",
                 pathname === item.href
-                  ? "text-purple-600 dark:text-purple-400"
+                  ? "text-coffee-600 dark:text-coffee-400"
                   : "text-muted-foreground",
               )}
             >
@@ -102,9 +102,9 @@ export function Navigation() {
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "text-lg font-medium transition-colors hover:text-purple-600 dark:hover:text-purple-400",
+                      "text-lg font-medium transition-colors hover:text-coffee-600 dark:hover:text-coffee-400",
                       pathname === item.href
-                        ? "text-purple-600 dark:text-purple-400"
+                        ? "text-coffee-600 dark:text-coffee-400"
                         : "text-muted-foreground",
                     )}
                   >

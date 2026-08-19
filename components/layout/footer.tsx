@@ -12,7 +12,7 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <div className="flex items-center space-x-2">
              
-              <span className=" font-semibold bg-gradient-to-r from-purple-600 ml-3 to-purple-800 bg-clip-text text-transparent">
+              <span className=" font-semibold bg-gradient-to-r from-coffee-600 ml-3 to-coffee-800 bg-clip-text text-transparent">
                 Fateme
               </span>
             </div>

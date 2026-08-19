@@ -22,9 +22,9 @@ export function HeroSection() {
   const { t } = useI18n();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-purple-950/20 dark:via-gray-900 dark:to-purple-900/20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-coffee-50 via-white to-coffee-100 dark:from-coffee-950/20 dark:via-coffee-950 dark:to-coffee-900/20">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-coffee-300 dark:bg-coffee-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-blob"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-300 dark:bg-pink-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute top-40 left-40 w-80 h-80 bg-yellow-300 dark:bg-yellow-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
@@ -55,7 +55,7 @@ export function HeroSection() {
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-balance"
             >
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-coffee-600 to-coffee-800 dark:from-coffee-400 dark:to-coffee-600 bg-clip-text text-transparent">
                 Fateme Kharazmi
               </span>
               <br />
@@ -148,7 +148,7 @@ export function HeroSection() {
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-coffee-600 dark:text-coffee-400 mb-2">
                     {stat.value}
                   </div>
                   <div className="text-sm text-muted-foreground capitalize">
@@ -167,7 +167,7 @@ export function HeroSection() {
             className="relative"
           >
             <div className="relative mx-auto w-80 h-80 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-purple-600 dark:from-purple-500 dark:to-purple-700 rounded-full blur-3xl opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-coffee-400 to-coffee-600 dark:from-coffee-500 dark:to-coffee-700 rounded-full blur-3xl opacity-20"></div>
               <img
                 src={profile.avatarUrl}
                 alt={profile.name}
