@@ -1,5 +1,5 @@
-import { ViceCityPortfolio } from "@/components/vice-city-portfolio";
+import { ViceCityWorld } from "@/components/vice-city-world";
 
 export default function HomePage() {
-  return <ViceCityPortfolio />;
+  return <ViceCityWorld />;
 }
