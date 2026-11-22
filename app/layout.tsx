@@ -52,7 +52,7 @@ export default function RootLayout({
         >
           <I18nProvider>
             <Suspense fallback={null}>
-              <main className="min-h-screen">{children}</main>
+              <div className="min-h-screen">{children}</div>
             </Suspense>
           </I18nProvider>
         </ThemeProvider>
