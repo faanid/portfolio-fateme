@@ -115,8 +115,8 @@
 .unity-visual span { font-size: 10px; letter-spacing: .35em; }
 .unity-visual b { font-size: clamp(48px,6vw,75px); letter-spacing: -.1em; text-shadow: 0 6px 35px #f7a06a; }
 .unity-visual i { font-size: 8px; font-style: normal; letter-spacing: .2em; }
-.projects-scene { background: radial-gradient(ellipse at 20% 60%,rgba(89,48,103,.18),transparent 42%),#100d19; }
-.project-rail { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; align-items: start; }
+.projects-scene { min-height: 235vh; padding-top: 0; padding-bottom: 0; background: radial-gradient(ellipse at 20% 60%,rgba(89,48,103,.18),transparent 42%),#100d19; }\n.project-story-pin { position: sticky; top: 0; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 70px 0 30px; }\n.project-story-pin .section-heading-row { margin: 48px 0 38px; }
+.project-rail { display: flex; width: 138%; gap: 22px; align-items: stretch; will-change: transform; }\n.project-rail .project-card { flex: 0 0 30%; }
 .project-card { min-width: 0; background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.12); transition: transform .35s,border-color .35s,background .35s; }
 .project-card:nth-child(2) { margin-top: 62px; }
 .project-card:nth-child(3) { margin-top: 124px; }
@@ -249,7 +249,7 @@
   .experience-meta { font-size: 7px; gap: 10px; }
   .experience-visual { grid-column: 2; height: 210px; margin-top: 12px; }
   .experience-main li { font-size: 11px; }
-  .project-rail { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-right: -7vw; padding: 0 7vw 15px 0; scrollbar-width: thin; scrollbar-color: rgba(255,93,158,.6) rgba(255,255,255,.1); }
+  .projects-scene { min-height: 0; padding-top: 78px; padding-bottom: 78px; }\n  .project-story-pin { position: relative; top: auto; min-height: 0; display: block; overflow: visible; padding: 0; }\n  .project-rail { width: auto; transform: none!important; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-right: -7vw; padding: 0 7vw 15px 0; scrollbar-width: thin; scrollbar-color: rgba(255,93,158,.6) rgba(255,255,255,.1); }
   .project-card { flex: 0 0 86%; scroll-snap-align: start; }
   .project-card:nth-child(2),.project-card:nth-child(3) { margin-top: 0; }
   .project-image { height: 210px; }
