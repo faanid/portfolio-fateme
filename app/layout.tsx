@@ -5,22 +5,23 @@ import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { I18nProvider } from "@/lib/i18n/context";
-import { Navigation } from "@/components/layout/navigation";
-import { Footer } from "@/components/layout/footer";
 import { Suspense } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Fateme Kharazmi - Frontend Developer Portfolio",
+  title: "Fateme Kharazmi — Software Engineer",
   description:
-    "Frontend Developer with 3+ years experience in React.js, Next.js, and TypeScript. Specialized in building responsive, modern web applications.",
+    "Fateme Kharazmi is a software engineer working across frontend development, backend engineering, and interactive systems.",
   keywords: [
-    "Frontend Developer",
+    "Fateme Kharazmi",
+    "Software Engineer",
+    "Frontend Engineering",
+    "Backend Development",
     "React",
     "Next.js",
     "TypeScript",
+    "Node.js",
     "Portfolio",
-    "Web Development",
   ],
   authors: [{ name: "Fateme Kharazmi" }],
   creator: "Fateme Kharazmi",
@@ -28,12 +29,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://fatemedev.com",
-    title: "Fateme Kharazmi - Frontend Developer Portfolio",
+    title: "Fateme Kharazmi — Software Engineer",
     description:
-      "Frontend Developer with 3+ years experience in React.js, Next.js, and TypeScript.",
-    siteName: "Fateme Kharazmi Portfolio",
+      "Building experiences. Engineering possibilities. Explore the work and journey of Fateme Kharazmi.",
+    siteName: "Fateme Kharazmi",
   },
-  generator: "v0.app",
 };
 
 export default function RootLayout({
@@ -43,9 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
-      >
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -54,11 +52,7 @@ export default function RootLayout({
         >
           <I18nProvider>
             <Suspense fallback={null}>
-              <div className="relative flex min-h-screen flex-col">
-                <Navigation />
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </div>
+              <main className="min-h-screen">{children}</main>
             </Suspense>
           </I18nProvider>
         </ThemeProvider>
