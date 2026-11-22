@@ -295,7 +295,7 @@ export function ViceCityWorld() {
       </section>
 
       <section id="about" data-index="1" ref={(el) => { if (el) sections.current[1] = el; }} className="world-section about-section">
-        <ChapterLabel number="02" name="THE PERSON BEHIND THE CODE" />
+        <ChapterLabel number="03" name="THE PERSON BEHIND THE CODE" />
         <div className="about-layout">
           <div className="about-portrait"><Image src="/images/profile/fateme-kh1.jpg" alt="Fateme Kharazmi" fill sizes="(max-width: 760px) 70vw, 28vw" priority={false}/><span>ENGINEER / CREATOR</span></div>
           <div className="about-copy"><p className="eyebrow">A LITTLE CONTEXT</p><h2>Curiosity<br/>with <em>direction.</em></h2><p className="about-lead">Software Engineer with hands-on experience in frontend and backend development, interactive systems, and software architecture.</p><p>Working across JavaScript, TypeScript, React, Next.js, Node.js, Express.js, MongoDB, C# and Unity. Passionate about problem-solving, modular architecture, and building reliable software solutions.</p><a href="#experience" className="text-cta">FOLLOW THE JOURNEY <ArrowDownRight size={16}/></a></div>
@@ -304,26 +304,26 @@ export function ViceCityWorld() {
       </section>
 
       <section id="experience" data-index="2" ref={(el) => { if (el) sections.current[2] = el; }} className="world-section experience-section">
-        <ChapterLabel number="03" name="PROFESSIONAL JOURNEY" />
+        <ChapterLabel number="04" name="PROFESSIONAL JOURNEY" />
         <div className="section-intro"><p className="eyebrow">THREE ROLES. THREE WORLDS.</p><h2>Built in<br/><em>the field.</em></h2></div>
         <div className="experience-worlds">{experience.map((job,index) => <article className={`experience-world experience-world-${index+1}`} key={job.company}><div className={`experience-image ${index === 1 ? "game-dev-environment" : ""}`}>{index === 1 ? <div className="game-studio-render" aria-hidden="true"><div className="studio-monitor"><div className="studio-screen"><i/><i/><i/><b>UNITY / VEHICLE SIMULATION</b><span>ENGINE / PHYSICS / INPUT</span></div></div><div className="studio-car"><i/><b/><em/><span/></div><div className="studio-floor"/></div> : <Image src={job.image} alt={job.company + " environment"} fill sizes="(max-width: 760px) 90vw, 52vw"/>}<span className="image-stamp">ENVIRONMENT / 0{index+1}</span></div><div className="experience-copy"><span className="eyebrow">{job.period} · {job.location}</span><h3>{job.company}</h3><h4>{job.role}</h4><p>{job.detail}</p><ul>{job.points.map(point => <li key={point}>{point}</li>)}</ul></div></article>)}</div>
       </section>
 
       <section id="projects" data-index="3" ref={(el) => { if (el) sections.current[3] = el; }} className="world-section projects-section">
-        <ChapterLabel number="04" name="SELECTED PROJECTS / OPEN MISSIONS" />
+        <ChapterLabel number="05" name="SELECTED PROJECTS / OPEN MISSIONS" />
         <div className="section-intro projects-intro"><p className="eyebrow">REAL WORK. REAL REPOSITORIES.</p><h2>Open<br/><em>missions.</em></h2><p>Selected builds and engineering practice. Each project is a new environment to explore.</p></div>
         <div className="project-stage">{projects.map((project,index) => <article className={`project-world project-world-${index+1}`} key={project.name}><div className="project-art"><Image src={project.image} alt={project.name + " project preview"} fill sizes="(max-width: 760px) 90vw, 58vw"/><span className="project-no">0{index+1} / 03</span><span className="project-type">{project.type}</span></div><div className="project-details"><h3>{project.name}</h3><p>{project.description}</p><div className="project-stack">{project.stack.map(item => <span key={item}>{item}</span>)}</div><div className="project-actions"><a href={project.github} target="_blank" rel="noreferrer"><Github size={16}/> SOURCE CODE <ArrowUpRight size={14}/></a>{project.live && <a href={project.live} target="_blank" rel="noreferrer">LIVE EXPERIENCE <ArrowUpRight size={14}/></a>}</div></div></article>)}</div>
       </section>
 
       <section id="skills" data-index="4" ref={(el) => { if (el) sections.current[4] = el; }} className="world-section skills-section">
-        <ChapterLabel number="05" name="THE DIGITAL ECOSYSTEM" />
+        <ChapterLabel number="06" name="THE DIGITAL ECOSYSTEM" />
         <div className="skills-heading"><p className="eyebrow">A CONNECTED TOOLKIT</p><h2>Systems<br/>in <em>motion.</em></h2><p>Five connected disciplines. One engineering mindset.</p></div>
         <div className="skill-orbit" aria-hidden="true"><div className="orbit-ring orbit-one"/><div className="orbit-ring orbit-two"/><div className="orbit-core">FK<span>.</span></div><b className="orbit-node node-one">JS</b><b className="orbit-node node-two">TS</b><b className="orbit-node node-three">UI</b><b className="orbit-node node-four">API</b><b className="orbit-node node-five">AI</b></div>
         <div className="skill-atlas">{skillGroups.map((group,index) => <div className="skill-region" key={group.label}><span>0{index+1} / ECOSYSTEM</span><h3>{group.label}</h3><p>{group.items.join(" · ")}</p></div>)}</div>
       </section>
 
       <section id="education" data-index="5" ref={(el) => { if (el) sections.current[5] = el; }} className="world-section education-section">
-        <ChapterLabel number="06" name="EDUCATION / ACHIEVEMENTS" />
+        <ChapterLabel number="07" name="EDUCATION / ACHIEVEMENTS" />
         <div className="education-heading"><p className="eyebrow">THE FOUNDATION</p><h2>Built on<br/><em>curiosity.</em></h2></div>
         <div className="education-architecture"><article><span>2024 — 2026</span><h3>M.Sc. Computer Engineering</h3><p>Software Engineering</p><small>Shahid Beheshti University</small></article><article><span>2020 — 2024</span><h3>B.Sc. Electrical Engineering</h3><p>Electronics</p><small>Tehran Markaz Azad University</small></article></div>
         <div className="achievement-plinth"><div><span>2025 / ALGORITHM COMPETITION</span><strong>07<sup>TH</sup></strong><p>Mili Gold</p></div><div><span>2024 / FUTURE STARS</span><strong>40<sup>TH</sup></strong><p>Golrang</p></div></div>
@@ -331,7 +331,7 @@ export function ViceCityWorld() {
       </section>
 
       <section id="contact" data-index="6" ref={(el) => { if (el) sections.current[6] = el; }} className="world-section contact-section">
-        <ChapterLabel number="07" name="THE COAST / AFTER DARK" />
+        <ChapterLabel number="08" name="THE COAST / AFTER DARK" />
         <div className="contact-content"><p className="eyebrow">THE CITY IS YOURS</p><h2>LET&apos;S BUILD<br/>SOMETHING <em>EXTRAORDINARY.</em></h2><p>Have an interesting idea? Let&apos;s make it real.</p><a className="contact-email" href="mailto:fatemeekharazmi@gmail.com">fatemeekharazmi@gmail.com <ArrowUpRight size={20}/></a><div className="contact-socials"><a href="https://github.com/faanid" target="_blank" rel="noreferrer"><Github size={17}/> GITHUB <ArrowUpRight size={13}/></a><a href="https://www.linkedin.com/in/fateme-kharazmi/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LINKEDIN <ArrowUpRight size={13}/></a><a href="mailto:fatemeekharazmi@gmail.com"><Mail size={17}/> EMAIL <ArrowUpRight size={13}/></a></div></div>
         <footer className="world-footer"><a href="#home" className="world-logo">FK<span>.</span></a><span>© {new Date().getFullYear()} FATEME KHARAZMI / SOFTWARE ENGINEER</span><a href="#home">BACK TO THE TOP <MoveUpRight size={14}/></a></footer>
       </section>
