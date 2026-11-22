@@ -226,6 +226,7 @@ export function ViceCityPortfolio() {
     ["JOURNEY", "#journey"],
     ["PROJECTS", "#projects"],
     ["SKILLS", "#skills"],
+    ["EDUCATION", "#education"],
     ["CONTACT", "#contact"],
   ];
 
@@ -310,7 +311,7 @@ export function ViceCityPortfolio() {
       </section>
 
       <section className="intro-scene section-pad" id="about">
-        <div className="section-kicker"><span>01 / THE PERSON BEHIND THE PIXELS</span><span>ABOUT ME</span></div>
+        <div className="section-kicker"><span>02 / THE PERSON BEHIND THE PIXELS</span><span>ABOUT ME</span></div>
         <div className="intro-grid">
           <Reveal className="intro-heading">
             <p className="micro-label">NOT JUST LINES OF CODE.</p>
@@ -330,7 +331,7 @@ export function ViceCityPortfolio() {
       </section>
 
       <section className="journey-scene section-pad" id="journey">
-        <div className="section-kicker"><span>02 / THE PROFESSIONAL JOURNEY</span><span>THREE CHAPTERS</span></div>
+        <div className="section-kicker"><span>03 / THE PROFESSIONAL JOURNEY</span><span>THREE CHAPTERS</span></div>
         <div className="section-heading-row">
           <Reveal><p className="micro-label">EVERY ROLE LEFT A MARK.</p><h2>Made along<br /><em>the way.</em></h2></Reveal>
           <Reveal delay={0.15}><p className="section-aside">Different teams. Different challenges.<br />One constant: making the work better.</p></Reveal>
@@ -361,7 +362,7 @@ export function ViceCityPortfolio() {
 
       <section className="projects-scene section-pad" id="projects" ref={projectSectionRef}>
         <div className="project-story-pin">
-        <div className="section-kicker"><span>03 / SELECTED WORK</span><span>OPEN THE CASE FILES</span></div>
+        <div className="section-kicker"><span>04 / SELECTED WORK</span><span>OPEN THE CASE FILES</span></div>
         <div className="section-heading-row projects-heading">
           <Reveal><p className="micro-label">A FEW THINGS I&apos;VE BUILT.</p><h2>Selected<br /><em>missions.</em></h2></Reveal>
           <Reveal delay={0.15}><p className="section-aside">A small selection of real work and ongoing<br />engineering practice. More chapters ahead.</p></Reveal>
@@ -393,7 +394,7 @@ export function ViceCityPortfolio() {
       </section>
 
       <section className="skills-scene section-pad" id="skills">
-        <div className="section-kicker"><span>04 / THE TOOLKIT</span><span>BUILT FOR THE JOB</span></div>
+        <div className="section-kicker"><span>05 / THE TOOLKIT</span><span>BUILT FOR THE JOB</span></div>
         <div className="section-heading-row">
           <Reveal><p className="micro-label">TOOLS ARE ONLY THE BEGINNING.</p><h2>What I bring<br /><em>to the table.</em></h2></Reveal>
           <Reveal delay={0.15}><p className="section-aside">A practical toolkit, shaped by shipping<br />interfaces, APIs and interactive systems.</p></Reveal>
@@ -411,7 +412,7 @@ export function ViceCityPortfolio() {
       </section>
 
       <section className="education-scene section-pad" id="education">
-        <div className="section-kicker"><span>05 / THE FOUNDATION</span><span>EDUCATION & CURIOSITY</span></div>
+        <div className="section-kicker"><span>06 / THE FOUNDATION</span><span>EDUCATION & CURIOSITY</span></div>
         <div className="education-grid">
           <div className="education-main">
             <Reveal><p className="micro-label">THE CLASSROOM WAS JUST THE START.</p><h2>Always<br /><em>learning.</em></h2></Reveal>
@@ -440,7 +441,7 @@ export function ViceCityPortfolio() {
 
       <section className="contact-scene section-pad" id="contact">
         <div className="contact-skyline" aria-hidden="true"><CityArtwork /></div>
-        <div className="section-kicker"><span>06 / THE NEXT CHAPTER</span><span>YOUR MOVE</span></div>
+        <div className="section-kicker"><span>07 / THE NEXT CHAPTER</span><span>YOUR MOVE</span></div>
         <Reveal className="contact-content">
           <p className="micro-label">GOT SOMETHING INTERESTING IN MIND?</p>
           <h2>Every great project<br />starts with a <em>conversation.</em></h2>
