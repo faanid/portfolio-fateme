@@ -1,19 +1,5 @@
-import { HeroSection } from "@/components/sections/hero-section";
-import { AboutSection } from "@/components/sections/about-section";
-import { ProjectsSection } from "@/components/sections/projects-section";
-import { SkillsSection } from "@/components/sections/skills-section";
-import { CollaborationsSection } from "@/components/sections/collaborations-section";
-import { ContactSection } from "@/components/sections/contact-section";
+import { ViceCityPortfolio } from "@/components/vice-city-portfolio";
 
 export default function HomePage() {
-  return (
-    <>
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <CollaborationsSection />
-      <ContactSection />
-    </>
-  );
+  return <ViceCityPortfolio />;
 }
