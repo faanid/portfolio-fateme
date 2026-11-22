@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import {
   ArrowDown,
   ArrowDownRight,
@@ -169,7 +168,7 @@ function Reveal({
   className = "",
   delay = 0,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   delay?: number;
 }) {
@@ -360,13 +359,14 @@ export function ViceCityPortfolio() {
         </div>
       </section>
 
-      <section className="projects-scene section-pad" id="projects">
+      <section className="projects-scene section-pad" id="projects" ref={projectSectionRef}>
+        <div className="project-story-pin">
         <div className="section-kicker"><span>03 / SELECTED WORK</span><span>OPEN THE CASE FILES</span></div>
         <div className="section-heading-row projects-heading">
           <Reveal><p className="micro-label">A FEW THINGS I&apos;VE BUILT.</p><h2>Selected<br /><em>missions.</em></h2></Reveal>
           <Reveal delay={0.15}><p className="section-aside">A small selection of real work and ongoing<br />engineering practice. More chapters ahead.</p></Reveal>
         </div>
-        <div className="project-rail">
+        <motion.div className="project-rail" style={{ x: projectX }}>
           {projects.map((project) => (
             <article className={`project-card ${project.accent}`} key={project.id}>
               <a className="project-image" href={project.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} on GitHub`}>
@@ -387,8 +387,9 @@ export function ViceCityPortfolio() {
               </div>
             </article>
           ))}
+        </motion.div>
+        <div className="rail-hint"><span>01 — 03</span><span>SCROLL TO EXPLORE <ArrowRight size={14} /></span></div>
         </div>
-        <div className="rail-hint"><span>01 — 03</span><span>DRAG OR SCROLL TO EXPLORE <ArrowRight size={14} /></span></div>
       </section>
 
       <section className="skills-scene section-pad" id="skills">
