@@ -237,7 +237,7 @@ const experience = [
 ];
 
 const projects = [
-  { name: "NECTAR", type: "FULL-STACK APPLICATION", description: "A Node.js application exploring structured APIs, authentication, data modeling and maintainable backend architecture.", image: "/images/nectar.jpg", stack: ["Node.js", "Express", "MongoDB", "REST API"], github: "https://github.com/faanid/job-application-api", live: "" },
+  { name: "NECTAR", type: "FULL-STACK APPLICATION", description: "A RESTful tour-booking backend with authentication, user management, tours, reviews, bookings and MongoDB queries.", image: "/images/nectar.jpg", stack: ["Node.js", "Express", "MongoDB", "JWT"], github: "https://github.com/faanid/nectar", live: "" },
   { name: "CYBERIA", type: "FRONTEND ENGINEERING", description: "A responsive product experience built around reusable UI, thoughtful layout and clean frontend implementation.", image: "/images/cyberiaa.jpg", stack: ["React", "TypeScript", "Tailwind CSS"], github: "https://github.com/faanid/cyberia-tech-challenge", live: "https://cyberia-tech-challenge.netlify.app/" },
   { name: "ALGORITHM LOG", type: "PROBLEM SOLVING", description: "An evolving collection of data-structure and algorithm solutions, with implementation notes and complexity analysis.", image: "/images/leetcode-solutions.jpg", stack: ["JavaScript", "TypeScript", "DSA", "Big O"], github: "https://github.com/faanid/leetcode-solutions", live: "" },
 ];
