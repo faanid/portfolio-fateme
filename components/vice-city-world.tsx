@@ -30,8 +30,8 @@ float sdBox(vec3 p, vec3 b) {
 float sceneMap(vec3 p, out float material) {
   float d = p.y;
   material = 0.0;
-  for (int x = -2; x <= 2; x++) {
-    for (int z = 0; z < 7; z++) {
+  for (int x = -1; x <= 1; x++) {
+    for (int z = 0; z < 4; z++) {
       vec2 cell = vec2(float(x), float(z));
       float r = hash(cell + 12.7);
       float h = 9.0 + r * 21.0;
@@ -45,7 +45,7 @@ float sceneMap(vec3 p, out float material) {
   if (road < d) { d = road; material = 3.0; }
   // Palm trunks, deliberately placed along the waterfront.
   for (int side = -1; side <= 1; side += 2) {
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 2; i++) {
       float z = -7.0 - float(i) * 19.0;
       vec3 a = vec3(float(side) * 13.0, 0.0, z);
       vec3 b = a + vec3(float(side) * 1.3, 8.5, 0.0);
@@ -57,15 +57,6 @@ float sceneMap(vec3 p, out float material) {
       vec3 crown = b;
       float crownD = length(p - crown) - 0.55;
       if (crownD < d) { d = crownD; material = 4.0; }
-      for (int leaf = 0; leaf < 5; leaf++) {
-        float angle = float(leaf) * 1.256 + float(i) * 0.4;
-        vec3 tip = crown + vec3(cos(angle) * 3.4, -1.2 - float(leaf % 2) * 0.35, sin(angle) * 3.4);
-        vec3 v = tip - crown;
-        vec3 w = p - crown;
-        float t = clamp(dot(w, v) / dot(v, v), 0.0, 1.0);
-        float leafD = length(w - v * t) - (0.12 + t * 0.12);
-        if (leafD < d) { d = leafD; material = 4.0; }
-      }
     }
   }
   return d;
@@ -99,7 +90,7 @@ void main() {
   float material = 0.0;
   bool hit = false;
   vec3 pos = ro;
-  for (int i = 0; i < 62; i++) {
+  for (int i = 0; i < 38; i++) {
     pos = ro + rd * t;
     float d = sceneMap(pos, material);
     if (d < 0.018) { hit = true; break; }
@@ -193,7 +184,7 @@ function CinematicWorld() {
     let progress = 0;
     let lastTime = 0;
     const resize = () => {
-      const ratio = Math.min(window.devicePixelRatio || 1, 1.35);
+      const ratio = Math.min(window.devicePixelRatio || 1, 1.0) * 0.68;
       canvas.width = Math.floor(window.innerWidth * ratio);
       canvas.height = Math.floor(window.innerHeight * ratio);
       canvas.style.width = "100%";
