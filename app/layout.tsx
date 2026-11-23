@@ -5,15 +5,14 @@ import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { I18nProvider } from "@/lib/i18n/context";
-import { Navigation } from "@/components/layout/navigation";
-import { Footer } from "@/components/layout/footer";
 import { Suspense } from "react";
 import "./globals.css";
+import "./pixel-adventure.css";
 
 export const metadata: Metadata = {
-  title: "Fateme Kharazmi - Frontend Developer Portfolio",
+  title: "Fateme Kharazmi — A Pixel Adventure Portfolio",
   description:
-    "Frontend Developer with 3+ years experience in React.js, Next.js, and TypeScript. Specialized in building responsive, modern web applications.",
+    "Explore Fateme Kharazmi’s work, experience and skills through a nostalgic side-scrolling pixel adventure.",
   keywords: [
     "Frontend Developer",
     "React",
@@ -55,9 +54,7 @@ export default function RootLayout({
           <I18nProvider>
             <Suspense fallback={null}>
               <div className="relative flex min-h-screen flex-col">
-                <Navigation />
                 <main className="flex-1">{children}</main>
-                <Footer />
               </div>
             </Suspense>
           </I18nProvider>
