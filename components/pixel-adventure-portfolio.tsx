@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, ArrowUpRight, ChevronDown, Volume2, VolumeX } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight, ChevronDown } from "lucide-react";
 
 const chapters = [
   { id: "start", number: "01", title: "A NEW ADVENTURE", subtitle: "Software Engineer · Frontend & Backend", kind: "start" },
@@ -55,7 +55,6 @@ function Cloud({ className = "" }: { className?: string }) {
 
 export function PixelAdventurePortfolio() {
   const [progress, setProgress] = useState(0);
-  const [soundOn, setSoundOn] = useState(false);
   const [activeChapter, setActiveChapter] = useState(0);
 
   useEffect(() => {
@@ -80,7 +79,7 @@ export function PixelAdventurePortfolio() {
     };
   }, []);
 
-  const worldShift = progress * 500;
+  const worldShift = progress * 600;
   const jumpTo = (index: number) => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     window.scrollTo({ top: (index / (chapters.length - 1)) * max, behavior: "smooth" });
@@ -91,7 +90,7 @@ export function PixelAdventurePortfolio() {
       <div className="game-hud">
         <a className="game-logo" href="#top" aria-label="Back to start"><span className="logo-pixel">F</span><span>FATEME<span className="logo-dot">.</span></span></a>
         <div className="hud-level"><span>WORLD 01</span><span className="hud-divider">/</span><span>{chapters[activeChapter]?.number ?? "01"} — {chapters[activeChapter]?.title ?? "START"}</span></div>
-        <button className="sound-toggle" onClick={() => setSoundOn(!soundOn)} aria-label={soundOn ? "Turn sound off" : "Turn sound on"}>{soundOn ? <Volume2 size={16} /> : <VolumeX size={16} />}<span>SOUND {soundOn ? "ON" : "OFF"}</span></button>
+        <span className="hud-prompt">SCROLL TO PLAY</span>
       </div>
 
       <div className="game-progress"><span style={{ width: `${progress * 100}%` }} /></div>
